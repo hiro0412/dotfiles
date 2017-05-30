@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+
+if echo "$-" | grep -q "i"; then
+    # Don't do anything when the shell is running in interactive mode.
+    echo "This script don't do anything in running interactive mode."
+    return
+fi
+
+DOT_DIR="$HOME/dotfiles"
+DOT_TAR=""
+REMOTE_URL=""
+
+die(){
+    echo "oops!"
+    exit 1
+}
+
+if [ ! -d "${DOT_DIR}" ];
+then
+    :
+fi
+
+dotfiles_install(){
+    echo "dotfiles_install"
+}
+
+dotfiles_deploy(){
+    echo "dotfiles_deploy"
+}
+
+dotfiles_install || die
+dotfiles_deploy || die
+
+    
+    
