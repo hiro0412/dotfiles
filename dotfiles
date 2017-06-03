@@ -7,9 +7,10 @@ if echo "$-" | grep -q "i"; then
     return
 fi
 
-DOT_DIR="$HOME/dotfiles"
-DOT_TAR=""
-REMOTE_URL=""
+WORK_DIR="$HOME"
+DOT_DIR="$HOME/dotfiles-master"
+DOT_TARBALL="dotfiles.tar.gz"
+REMOTE_TAR_URL="https://github.com/hiro0412/dotfiles/archive/master.tar.gz"
 
 die(){
     echo "oops!"
@@ -18,7 +19,16 @@ die(){
 
 if [ ! -d "${DOT_DIR}" ];
 then
-    :
+    cd "$WORK_DIR" || die
+    echo "download from tarball from : $REMOTE_TAR_URL"
+    curl -s -L "$REMOTE_TAR_URL" -o "$DOT_TARBALL" || die
+    echo "done."
+
+    echo -n "extracting.."
+    tar xzf "$DOT_TARBALL" || die
+    echo " done."
+     
+    cd "$DOT_DIR" || die
 fi
 
 dotfiles_install(){
