@@ -70,6 +70,20 @@ export XMODIFIERS=@im=kinput2
 
 export MANPATH=/opt/X11/share/man:$MANPATH
 
+
+# lesspipe
+export LESSOPEN=''
+if [ -x /usr/local/bin/lesspipe.sh ]; then
+    eval "$(SHELL=/bin/bash /usr/local/bin/lesspipe.sh)"
+elif [ -x /usr/bin/lesspipe ]; then
+    eval "$(SHELL=/bin/bash /usr/bin/lesspipe)"    
+fi
+
+if [ -n "$LESSOPEN" ] && type pygmentize >/dev/null 2>&1; then
+    export LESS='-R'
+    export LESSCOLORIZER=pygmentize
+fi  
+    
 alias stopmdutil='sudo mdutil -i off /'
 alias startmdutil='sudo mdutil -i on /'
 
