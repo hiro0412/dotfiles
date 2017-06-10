@@ -1,5 +1,3 @@
-echo "running $(cd $(dirname $BASH_SOURCE); pwd)/$(basename $BASH_SOURCE)"
-
 if [ -f ~/.bashrc ] ; then
     . ~/.bashrc
 fi
@@ -14,9 +12,6 @@ then
    #export PATH="${PYENV_ROOT}/bin:$PATH"
    #eval "$(pyenv init -)"
 fi
-
-## adjust path
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 ## android-tools
 if [ -d $HOME/Library/Android/sdk/platform-tools ];
@@ -41,3 +36,6 @@ then
 	source "${GCSDK_HOME}/completion.bash.inc";
     fi
 fi
+
+## adjust path
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
