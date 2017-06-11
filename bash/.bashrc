@@ -83,29 +83,6 @@ if [ -n "$LESSOPEN" ] && type pygmentize >/dev/null 2>&1; then
     export LESS='-R'
     export LESSCOLORIZER=pygmentize
 fi  
-    
-alias stopmdutil='sudo mdutil -i off /'
-alias startmdutil='sudo mdutil -i on /'
-
-alias vboxmanage='/Applications/VirtualBox.app/Contents/MacOS/VBoxManage'
-
-# alias activate="source ${PYENV_ROOT}/versions/anaconda3-4.3.1/bin/activate"
-
-# coreutils
-# export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-# export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-# export PATH=/usr/local/mysql/bin:$PATH
-# export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-# export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
-
-# virtualenvwrapper
-# export PROJECT_HOME=$HOME/projects
-# export WORKON_HOME=$HOME/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
-
-# mysql
-# alias mysql_root='MYSQL_PWD=$(cat ${HOME}/MYSQL_PASSWORD) mysql -uroot -hlocalhost --default-character-set=utf8'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

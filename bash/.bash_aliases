@@ -31,3 +31,24 @@ then
 else
     alias diff='diff -u'
 fi
+
+# mysql
+# if type mysql >/dev/null 2>&1; then
+#     alias mysql_root='MYSQL_PWD=$(cat ${HOME}/MYSQL_PASSWORD) mysql -uroot -hlocalhost --default-character-set=utf8'
+# fi
+
+if is_osx; then
+    # --- aliases for OSX ---
+    
+    # mdutil
+    alias stopmdutil='sudo mdutil -i off /'
+    alias startmdutil='sudo mdutil -i on /'
+
+    # vboxmanage
+    VBOXMANAGE_EXEC='/Applications/VirtualBox.app/Contents/MacOS/VBoxManage'
+    [ -x "$VBOXMANAGE_EXEC" ] && alias vboxmanage="$VBOXMANAGE_EXEC"
+    
+elif is_linux; then
+    # --- aliases for Linux ---
+    :
+fi
