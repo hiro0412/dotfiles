@@ -1,0 +1,25 @@
+autodetach on
+bell_msg "^G"
+defkanji utf-8
+defencoding utf-8
+encoding utf-8 utf-8
+defscrollback 10000
+escape ^Zz
+startup_message off
+vbell off
+
+caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} *%H* [%l] %Y/%m/%d %c:%s "
+#hardstatus string "[screen %n: %t] %h"
+
+bind l windowlist
+bind 2 split
+bind o focus
+bind 1 only
+bind 0 remove
+
+bind r eval 'echo "Resize window"' 'command -c resize'
+bind -c resize j eval 'resize +1' 'command -c resize'
+bind -c resize k eval 'resize -1' 'command -c resize'
+
+bind R colon "screen ssh ^b^b"
+idle 3600
