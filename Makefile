@@ -30,5 +30,6 @@ deploy_emacs:
 	@ln -sfnv $(abspath emacs/init.el) $(DOT_EMACS_DIR)/init.el 2>&1
 	@ln -sfnv $(abspath emacs/Cask) $(DOT_EMACS_DIR)/Cask 2>&1
 	mkdir -p $(DOT_EMACS_DIR)/inits
+	mkdir -p $(DOT_EMACS_DIR)/elisp
 	@$(foreach F, $(EMACS_INITS_ELS), ln -sfnv $(abspath $F) $(DOT_EMACS_DIR)/inits/$(notdir $F) 2>&1;)
 	@echo "(deploy emacs dotfiles) <--- done. "
