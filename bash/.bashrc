@@ -70,6 +70,12 @@ export XMODIFIERS=@im=kinput2
 
 export MANPATH=/opt/X11/share/man:$MANPATH
 
+# bash_completion
+if is_osx; then
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+	. `brew --prefix`/etc/bash_completion
+    fi
+fi
 
 # lesspipe
 export LESSOPEN=''
@@ -88,5 +94,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# direnv
-eval "$(direnv hook bash)"
+## direnv
+if type direnv > /dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+fi
