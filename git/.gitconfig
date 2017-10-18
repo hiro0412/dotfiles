@@ -1,0 +1,69 @@
+[user]
+	name = Hiroaki Honda
+	email = 
+[include]
+	path = .gitconfig_local
+[core]
+	pager = less -+F
+	editor = vim
+	excludesfile = /home/vagrant/.gitignore_global
+	quotepath = false
+[pager]
+	color = true
+[pretty]
+    # http://qiita.com/qurage/items/daa67763e5a0090af06a
+    medium-reverse = "format:%C(red reverse)%d%Creset%C(white reverse) %h% Creset %C(green reverse) %an %Creset %C(cyan)%ar%Creset%n%C(white bold)%w(80)%s%Creset%n%n%w(80,2,2)%b"
+    pretty-oneline = "format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset"
+    pretty-graph = "format:%C(red)%h%Creset -%C(yellow reverse bold)%d%Creset %s %Cgreen(%cr)%Creset%C(black bold) (by %an)%Creset"
+[alias]
+    b = branch
+    d = diff
+	tags = tag -l
+	branches = branch -a
+	branch = branch -vv
+	remotes = remote -v
+	root = rev-parse --show-toplevel
+	ignored = "!git ls-files --others --exclude-standard"
+	l   = log --color=always --all --topo-order --pretty=pretty-oneline
+	ll  = log     --color=always --all --topo-order --pretty=pretty-oneline
+	gl  = log --all --graph --pretty=pretty-graph
+	gll = log --all --graph --pretty=pretty-graph
+	ack = log --color=always --all --topo-order --pretty=pretty-graph --full-history -S
+	ci = commit
+	co = checkout
+	id = rev-parse
+	st = status -sb
+    ss = stash save
+    sp = stash pop
+    sa = stash apply
+    sl = stash list
+	undo = checkout --
+	unstage = reset HEAD --
+	shelve = stash save --include-untracked
+	unshelve = stash pop
+	subs = submodule foreach git pull origin master
+	pull = pull --ff-only
+	sync = !git pull --rebase && git push
+	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --informative-errors --strict-paths --enable=receive-pack .git/
+	serveall = daemon --verbose --export-all --base-path=. --informative-errors --reuseaddr --enable=receive-pack .
+	stdiff = "!f(){ git diff HEAD..stash@{$1}; };f"
+	delbranch = "branch -D"
+[push]
+	default = current
+[fetch]
+	prune = true
+[color]
+	ui = auto
+[color "branch"]
+	current = red
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = cyan
+	frag = magenta
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
