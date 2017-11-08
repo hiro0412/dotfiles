@@ -52,3 +52,8 @@ elif is_linux; then
     # --- aliases for Linux ---
     :
 fi
+
+for file in $(ls ~/.bash_aliases.d/aliases* 2>/dev/null)
+do
+    . $file
+done
