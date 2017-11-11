@@ -1,6 +1,8 @@
 ;; Mac用フォント設定
 ;; http://tcnksm.sakura.ne.jp/blog/2012/04/02/emacs/
 
+(when window-system
+
  ;; 英語
  (set-face-attribute 'default nil
              :family "Menlo" ;; font
@@ -16,3 +18,5 @@
 (setq face-font-rescale-alist
 ;;        '((".*Hiragino_Mincho_pro.*" . 1.2)))
       '((".*Hiragino_Kaku_Gothic_ProN.*" . 1.2)));; Mac用フォント設定
+
+)
