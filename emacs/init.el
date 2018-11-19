@@ -21,7 +21,7 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
-(load (locate-user-emacs-file "Cask2ElGet"))
+(load (locate-user-emacs-file "Cask2Elget"))
 
 ;; ****************************************
 ;;   基本設定
