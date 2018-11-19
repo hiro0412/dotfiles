@@ -5,11 +5,23 @@
 
 (require 'cl)
 
-;; Cask
-(require 'cask)
-(cask-initialize)
-;; pallet
-(require 'pallet)
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
+
+;; el-get
+(let ((versioned-dir (locate-user-emacs-file emacs-version)))
+  (setq el-get-dir (expand-file-name "el-get" versioned-dir)
+        package-user-dir (expand-file-name "elpa" versioned-dir)))
+        
+(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(load (locate-user-emacs-file "Cask2ElGet"))
 
 ;; ****************************************
 ;;   基本設定
@@ -23,8 +35,7 @@
 	(add-to-list 'load-path default-directory)
 	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
 	    (normal-top-level-add-subdirs-to-load-path))))))
-
-;; elispとconfディレクトリをサブディレクトリごとload-pathに追加
+;; elispディレクトリをサブディレクトリごとload-pathに追加
 (add-to-load-path "elisp")
 
 ;; ===== exec-path =====
