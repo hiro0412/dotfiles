@@ -1,9 +1,9 @@
 ;; ==== キー設定 ====
 
 ;; commandキーとOptionキーの役割を入れ替える
-(when (eq system-type 'darwin)
-  (setq ns-command-modifier (quote meta))
-  (setq ns-alternate-modifier (quote super)))
+;(when (eq system-type 'darwin)
+;  (setq ns-command-modifier (quote meta))
+;  (setq ns-alternate-modifier (quote super)))
 
 ;; "C-m" に newline-and-indent を割り当てる。初期値は newline
 (define-key global-map (kbd "C-m") 'newline-and-indent)

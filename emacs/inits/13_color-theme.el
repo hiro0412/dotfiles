@@ -1,4 +1,3 @@
 ;; ====　color-theme ====
-(setq custom-theme-directory "~/.emacs.d/themes/")
-(load-theme 'tsdh-dark t)
-
+(setq custom-theme-directory (concat el-get-dir "/color-theme-zenburn"))
+(load-theme 'zenburn t)
