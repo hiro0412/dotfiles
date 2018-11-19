@@ -37,3 +37,4 @@
 (el-get-bundle "yasnippet")
 (el-get-bundle "yaml-mode")
 (el-get-bundle "color-theme-zenburn")
+(el-get-bundle "elscreen")
