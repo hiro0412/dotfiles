@@ -13,7 +13,7 @@
   (setq el-get-dir (expand-file-name "el-get" versioned-dir)
         package-user-dir (expand-file-name "elpa" versioned-dir)))
         
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+(add-to-list 'load-path (concat el-get-dir "/el-get"))
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -108,9 +108,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "ef0d2cd0b5ecebd6794a2012ffa08393e536b33e3e377ac2930bf5d7304dcb21" default)))
  '(package-selected-packages
    (quote
-    (howm yasnippet web-mode use-package smex smartparens projectile prodigy popwin paren-completer pallet open-junk-file nyan-mode multiple-cursors magit init-loader idle-highlight-mode htmlize highlight-symbol flycheck-cask expand-region exec-path-from-shell drag-stuff))))
+    (howm yasnippet web-mode use-package smex smartparens projectile prodigy popwin paren-completer open-junk-file nyan-mode multiple-cursors magit init-loader idle-highlight-mode htmlize highlight-symbol flycheck-cask expand-region exec-path-from-shell drag-stuff))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
