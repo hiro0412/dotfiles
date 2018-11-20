@@ -24,12 +24,26 @@ else
     alias lR='ls -GFR'
 fi
 
+## git
+alias g='git'
+alias gl='git l'
+alias gll='git ll'
+alias ggl='git gl'
+
+
 ## colordiff
 if which -s colordiff;
 then
     alias diff='colordiff -u'
 else
     alias diff='diff -u'
+fi
+
+## tig
+if which -s tig;
+then
+    alias t='tig'
+    alias ta='tig --all'
 fi
 
 # mysql
@@ -52,6 +66,8 @@ elif is_linux; then
     # --- aliases for Linux ---
     :
 fi
+
+
 
 for file in $(ls ~/.bash_aliases.d/aliases* 2>/dev/null)
 do
