@@ -3,7 +3,7 @@
 [core]
     pager = less -+F
     #editor = vim
-    editor = emacs -q -nw
+    editor = emacsclient -q -nw -a -c 
     excludesfile = ~/.gitignore_global
     quotepath = false
 [pager]
