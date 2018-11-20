@@ -45,6 +45,7 @@
     serveall = daemon --verbose --export-all --base-path=. --informative-errors --reuseaddr --enable=receive-pack .
     stdiff = "!f(){ git diff HEAD..stash@{$1}; };f"
     delbranch = "branch -D"
+    delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [push]
     default = current
 [fetch]
@@ -64,3 +65,7 @@
     added = yellow
     changed = green
     untracked = cyan
+[merge]
+    ff = false
+[pull]
+    ff = only
