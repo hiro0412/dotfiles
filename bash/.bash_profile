@@ -38,4 +38,9 @@ then
 fi
 
 ## adjust path
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+if [ -d "/usr/local/opt/sqlite/bin" ];
+then
+    PATH="/usr/local/opt/sqlite/bin:$PATH"
+fi
+export PATH
