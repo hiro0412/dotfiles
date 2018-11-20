@@ -61,7 +61,7 @@
         (list "-buildfile"
               (concat base-dir "/" "build.xml"))))
 
-(load-library "flymake-cursor")
+(require 'flymake-cursor)
 (add-hook 'flymake-mode-hook
           '(lambda()
           (local-set-key "\C-c\C-p" 'flymake-goto-prev-error)
