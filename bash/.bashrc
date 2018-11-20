@@ -98,3 +98,8 @@ fi
 if type direnv > /dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
+
+## include .bashrc_local
+if [ -f ~/.bashrc_local ] ; then
+    . ~/.bashrc_local
+fi
