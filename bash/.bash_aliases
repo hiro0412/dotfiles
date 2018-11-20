@@ -67,6 +67,9 @@ elif is_linux; then
     :
 fi
 
+## emacs
+alias emacs='emacsclient -c -a ""'
+alias killemacs='emacsclient -e "(kill-emacs)"'
 
 
 for file in $(ls ~/.bash_aliases.d/aliases* 2>/dev/null)
