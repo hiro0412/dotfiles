@@ -37,3 +37,4 @@
 (el-get-bundle "elscreen")
 (el-get-bundle "flymake-cursor")
 (el-get-bundle "elpy")
+(el-get-bundle "json-mode")
