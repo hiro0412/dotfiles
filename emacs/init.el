@@ -1,7 +1,7 @@
 ;; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
 
 ;; ===== デバッグモード =====
-(setq debug-on-error t)
+;;(setq debug-on-error t)
 
 (require 'cl)
 
