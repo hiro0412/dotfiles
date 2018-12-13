@@ -37,10 +37,34 @@ then
     fi
 fi
 
-## adjust path
+## Adjust PATH
 PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-if [ -d "/usr/local/opt/sqlite/bin" ];
-then
-    PATH="/usr/local/opt/sqlite/bin:$PATH"
-fi
+CANDIDATES=(
+    "/usr/local/opt/sqlite/bin"  # sqlite
+    "/usr/local/opt/binutils/bin"  # GNU binutils
+    # "/usr/local/opt/coreutils/libexec/gnubin"  # GNU coreutils
+    # "/usr/local/opt/findutils/libexec/gnubin"  # GNU findutils    
+)
+for ITEM in "${CANDIDATES[@]}"
+do
+    if [[ -d "$ITEM" && "$PATH" != *"$ITEM"* ]];
+    then
+	PATH="$ITEM:$PATH"
+    fi
+done
 export PATH
+
+## Adjust MANPATH
+CANDIDATES=(
+    "/opt/X11/share/man"
+    # "/usr/local/opt/coreutils/libexec/gnuman"  # GNU coreutils
+    # "/usr/local/opt/findutils/libexec/gnuman"  # GNU findutils
+)
+for ITEM in "${CANDIDATES[@]}"
+do
+    if [[ -d "$ITEM" && "$MANPATH" != *"$ITEM"* ]];
+    then
+	MANPATH="$ITEM:$MANPATH"
+    fi
+done
+export MANPATH

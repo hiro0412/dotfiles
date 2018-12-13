@@ -68,8 +68,6 @@ export EDITOR='emacsclient -q -nw -c -a'
 export LANG=ja_JP.UTF-8
 export XMODIFIERS=@im=kinput2
 
-export MANPATH=/opt/X11/share/man:$MANPATH
-
 # bash_completion
 if is_osx; then
     if [ -f `brew --prefix`/etc/bash_completion ]; then
