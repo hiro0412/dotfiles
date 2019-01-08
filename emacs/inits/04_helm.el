@@ -1,35 +1,42 @@
-;; helm
+(require 'helm)
+(require 'helm-config)
 
-(eval-after-load "helm-config"
-  '(progn
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
 
-;; ffap を使っていて find-file-at-point を起動した場合に、カーソル位置のパスや URL 等の
-;; 文字列が正しく取り込まれないことの対策
-     (defadvice helm-completing-read-default-1 (around ad-helm-completing-read-default-1 activate)
-       (if (listp (ad-get-arg 4))
-           (ad-set-arg 4 (car (ad-get-arg 4))))
-       (letf (((symbol-function 'regexp-quote)
-               (symbol-function 'identity)))
-         ad-do-it))
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
-     (when (require 'helm-mode nil t)
-       (global-set-key (kbd "C-c h") 'helm-mode)
-       ;; find-file にhelmを使用しない
-       (helm-mode 1)
-       (add-to-list 'helm-completing-read-handlers-alist '(find-file . nil))
-       )
-     
-     (when (require 'helm-descbinds nil t)
-       (helm-descbinds-mode))
-     ))
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
 
-(defvar my-helm-key (kbd "C-x c"))
-(define-key global-map my-helm-key
-  (lambda ()
-    (interactive)
-    (require 'helm-config)
-    (define-key global-map my-helm-key 'helm-command-map)
-    ))
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t
+      helm-echo-input-in-header-line t)
 
-;; (when (require 'helm-descbinds nil t)
-;;   (helm-descbinds-mode))
+(defun spacemacs//helm-hide-minibuffer-maybe ()
+  "Hide minibuffer in Helm session if we use the header line as input field."
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face
+                   (let ((bg-color (face-background 'default nil)))
+                     `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
+
+(add-hook 'helm-minibuffer-set-up-hook
+          'spacemacs//helm-hide-minibuffer-maybe)
+
+(setq helm-autoresize-max-height 0)
+(setq helm-autoresize-min-height 20)
+(helm-autoresize-mode 1)
+
+(helm-mode 1)

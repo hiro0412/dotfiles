@@ -38,3 +38,4 @@
 (el-get-bundle "flymake-cursor")
 (el-get-bundle "elpy")
 (el-get-bundle "json-mode")
+(el-get-bundle "helm")
