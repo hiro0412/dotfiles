@@ -12,7 +12,13 @@
 (define-key global-map (kbd "M-k") 'kill-this-buffer)
 
 ;; "C-t" でウィンドウを切り替える。初期値は transpose-chars
-(define-key global-map (kbd "C-t") 'other-window)
+(definee-key global-map (kbd "C-t") 'other-window)
+
+;; ESC + 矢印キーでウィンドウ切り替え
+(define-key esc-map (kbd "<left>") 'windmove-left)
+(define-key esc-map (kbd "<right>") 'windmove-right)
+(define-key esc-map (kbd "<up>") 'windmove-up)
+(define-key esc-map (kbd "<down>") 'windmove-down)
 
 ;; M-RET でフルスクリーン切り替え
 (if (commandp 'ns-fullscreen-toggle)
