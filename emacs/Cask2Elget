@@ -39,3 +39,4 @@
 (el-get-bundle "elpy")
 (el-get-bundle "json-mode")
 (el-get-bundle "helm")
+(el-get-bundle "csv-mode")
