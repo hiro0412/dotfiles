@@ -63,7 +63,7 @@ fi
 # prompt
 export PS1='\u@\h \w:$ '
 
-export EDITOR='emacsclient -q -nw -c -a'
+export EDITOR='emacsclient -q -nw -c -a ""'
 
 export LANG=ja_JP.UTF-8
 export XMODIFIERS=@im=kinput2
