@@ -14,6 +14,7 @@
 [alias]
     b = branch
     d = diff
+    f = fetch
     tags = tag -l
     branches = branch -a
     branch = branch -vv
@@ -39,6 +40,7 @@
     unshelve = stash pop
     subs = submodule foreach git pull origin master
     pull = pull --ff-only
+    pl = pull --ff-only
     sync = !git pull --rebase && git push
     serve = daemon --verbose --export-all --base-path=.git --reuseaddr --informative-errors --strict-paths --enable=receive-pack .git/
     serveall = daemon --verbose --export-all --base-path=. --informative-errors --reuseaddr --enable=receive-pack .
