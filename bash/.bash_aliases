@@ -23,14 +23,7 @@ else
     alias l1='ls -1'
     alias lR='ls -GFR'
 fi
-
-## git
-alias g='git'
-alias gl='git l'
-alias gll='git ll'
-alias ggl='git gl'
-
-
+    
 ## colordiff
 if which -s colordiff;
 then

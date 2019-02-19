@@ -75,6 +75,20 @@ if is_osx; then
     fi
 fi
 
+## git
+alias g='git'
+alias gl='git l'
+alias gll='git ll'
+alias ggl='git gl'
+if type -t __git_complete > /dev/null 2>&1; then
+    __git_complete g __git_main
+fi
+
+if type -t __git_ps1 > /dev/null 2>&1; then
+    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    export GIT_PS1_SHOWDIRTYSTATE=1
+fi
+    
 # lesspipe
 export LESSOPEN=''
 if [ -x /usr/local/bin/lesspipe.sh ]; then
