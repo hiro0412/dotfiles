@@ -43,7 +43,8 @@ CANDIDATES=(
     "/usr/local/opt/sqlite/bin"  # sqlite
     "/usr/local/opt/binutils/bin"  # GNU binutils
     # "/usr/local/opt/coreutils/libexec/gnubin"  # GNU coreutils
-    # "/usr/local/opt/findutils/libexec/gnubin"  # GNU findutils    
+    # "/usr/local/opt/findutils/libexec/gnubin"  # GNU findutils
+    "/usr/local/opt/postgresql/bin"
 )
 for ITEM in "${CANDIDATES[@]}"
 do
