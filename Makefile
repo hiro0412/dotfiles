@@ -2,6 +2,7 @@ EXCLUSIONS := %.DS_Store %.git% %.gitmodules %~
 BASH_DOTFILES := $(filter-out $(EXCLUSIONS), $(wildcard bash/.??*))
 DOT_EMACS_DIR := $(HOME)/.emacs.d
 EMACS_INITS_ELS := $(filter-out $(EXCLUSIONS), $(wildcard emacs/inits/?*.el))
+GIT_DOTFILES := $(filter-out $(EXCLUSIONS), $(wildcard git/.??*))
 
 .PHONY: list
 list: list_bash
@@ -13,6 +14,10 @@ list_bash:
 #.PHONY: list_emacs
 #list_emacs:
 #	@$(foreach val, $(EMACS_DOTFILES), /bin/ls -dF $(val);)
+
+.PHONY: list_git
+list_git:
+	@$(foreach val, $(GIT_DOTFILES), /bin/ls -dF $(val);)
 
 .PHONY: deploy
 deploy: deploy_bash
@@ -33,3 +38,9 @@ deploy_emacs:
 	mkdir -p $(DOT_EMACS_DIR)/elisp
 	@$(foreach F, $(EMACS_INITS_ELS), ln -sfnv $(abspath $F) $(DOT_EMACS_DIR)/inits/$(notdir $F) 2>&1;)
 	@echo "(deploy emacs dotfiles) <--- done. "
+
+.PHONY: deploy_git
+deploy_git:
+	@echo "(deploy git dotfiles) ---> start "
+	@$(foreach F, $(GIT_DOTFILES), ln -sfnv $(abspath $F) $(HOME)/$(notdir $F) 2>&1;)
+	@echo "(deploy git dotfiles) <--- done. "
