@@ -12,7 +12,7 @@
 (define-key global-map (kbd "M-k") 'kill-this-buffer)
 
 ;; "C-t" でウィンドウを切り替える。初期値は transpose-chars
-(definee-key global-map (kbd "C-t") 'other-window)
+(define-key global-map (kbd "C-t") 'other-window)
 
 ;; ESC + 矢印キーでウィンドウ切り替え
 (define-key esc-map (kbd "<left>") 'windmove-left)
