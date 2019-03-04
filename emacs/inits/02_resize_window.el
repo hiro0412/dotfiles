@@ -34,4 +34,4 @@
                (message "Quit")
                (throw 'end-flag t)))))))
 
-(global-set-key (kbd "C-c C-r") 'my-window-resizer)
+(global-set-key (kbd "C-c ;") 'my-window-resizer)
