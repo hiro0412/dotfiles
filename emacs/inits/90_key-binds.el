@@ -20,15 +20,15 @@
 (define-key esc-map (kbd "<up>") 'windmove-up)
 (define-key esc-map (kbd "<down>") 'windmove-down)
 
-;; M-RET でフルスクリーン切り替え
-(if (commandp 'ns-fullscreen-toggle)
-    (define-key global-map (kbd "M-RET") 'ns-fullscreen-toggle)
-  (if (commandp 'ns-toggle-fullscreen)
-      (define-key global-map (kbd "M-RET") 'ns-toggle-fullscreen)
-  ))
+;; ;; M-RET でフルスクリーン切り替え
+;; (if (commandp 'ns-fullscreen-toggle)
+;;     (define-key global-map (kbd "M-RET") 'ns-fullscreen-toggle)
+;;   (if (commandp 'ns-toggle-fullscreen)
+;;       (define-key global-map (kbd "M-RET") 'ns-toggle-fullscreen)
+;;   ))
 
-;; C-% で query-replace-regexp
-(define-key global-map (kbd "C-%") 'query-replace-regexp)
+;; M-% で query-replace-regexp
+(define-key global-map (kbd "M-%") 'query-replace-regexp)
 
 ;; M-¥ で delete-horizontal-space
 (define-key global-map (kbd "M-¥") 'delete-horizontal-space)
