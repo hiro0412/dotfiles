@@ -47,3 +47,5 @@
 (el-get-bundle "AdamNiederer/ssass-mode")
 (el-get-bundle "edit-indirect")
 (el-get-bundle "auto-save-buffers-enhanced")
+(el-get-bundle "monky")
+(el-get-bundle "markdown-preview-mode")
