@@ -115,3 +115,77 @@ fi
 if [ -f ~/.bashrc_local ] ; then
     . ~/.bashrc_local
 fi
+
+## --  https://qiita.com/xtetsuji/items/31bc53e92d94b1602b5d
+# 履歴を記録する cd の再定義
+function cd {
+    if [ -z "$1" ] ; then
+        # cd 連打で余計な $DIRSTACK を増やさない
+        test "$PWD" != "$HOME" && pushd $HOME > /dev/null
+    elif ( echo "$1" | egrep "^\.\.\.+$" > /dev/null ) ; then
+        cd $( echo "$1" | perl -ne 'print "../" x ( tr/\./\./ - 1 )' )
+    else
+        pushd "$1" > /dev/null
+    fi
+}
+
+# ショートカットキーで移動するcd
+function cdj {
+    ### cdjはCDJ_DIR_MAPという環境変数の配列の定義が必要です
+    # CDJ_DIR_MAP配列の例は以下です。ディレクトリのエイリアスと実ディレクトリのパスを空白区切りでペアで書いていきます
+#     export CDJ_DIR_MAP=(
+#         dbox ~/Dropbox
+#         cvs  ~/cvs
+#         etc  /etc
+#         );
+    test -n "$DEBUG" && echo "DEBUG: dir arg=$arg #CDJ_DIR_MAP=${#CDJ_DIR_MAP[*]}" 
+    declare arg=$1 \
+            subarg=$2 \
+            dir i key value warn
+    if [ -z "$arg" -o "$arg" = "-h" ] || [ "$arg" = "-v" -a -z "$subarg" ] ; then
+        ### help and usage mode
+        echo "Usage: $FUNCNAME <directory_alias>"
+        echo "       $FUNCNAME [-h|-v|-l <directory_alias>]"
+        echo "-h: help"
+        echo "-l: list defined lists"
+        echo "-v <directory_alias>: view path specify alias."
+        return
+    elif [ "$arg" = "-v" -o "$arg" = "-l" ] ; then 
+        ### view detail mode
+        for (( i=0; $i<${#CDJ_DIR_MAP[*]}; i=$((i+2)) )) ; do
+            key="${CDJ_DIR_MAP[$i]}"
+            value="${CDJ_DIR_MAP[$((i+1))]}"
+            if [ "$arg" = "-l" ] ; then
+                if [ ! -d "$value" ] ; then
+                    warn=" ***NOT_FOUND***"
+                else
+                    warn=""
+                fi
+                printf "%8s => %s%s\n" "$key" "$value" "$warn"
+            elif [ "$arg" = "-v" ] ; then
+                if [ "$key" = "$subarg" ] ; then
+                    echo $value
+                    return
+                fi
+            fi
+        done
+        return
+    fi
+    ### change directory mode
+    for (( i=0; $i<${#CDJ_DIR_MAP[*]}; i=$((i+2)) )) ; do
+        key="${CDJ_DIR_MAP[$i]}"
+        value="${CDJ_DIR_MAP[$((i+1))]}"
+        test -n "$DEBUG" && echo "$key => $value"
+        if [ "$key" = "$arg" ] ; then
+            if [ -n "$subarg" ] ; then
+                dir="$value/$subarg"
+            else
+                dir="$value"
+            fi
+            cd "$dir"
+            return
+        fi
+    done
+    echo "directory alias \"$arg\" is not found"
+    return 1
+}
