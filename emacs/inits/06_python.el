@@ -21,6 +21,13 @@
 ;; (setq flymake-warning-re "^[wWeE]")
 
 ;; elpy
+
+;; (setq python-shell-interpreter "jupyter"
+;;       python-shell-interpreter-args "console"
+;;       python-shell-prompt-detect-failure-warning nil)
+;; (add-to-list 'python-shell-completion-native-disabled-interpreters
+;;              "jupyter")
+
 (elpy-enable)
 ;; (setq python-check-command "lintrunner.py")
 
