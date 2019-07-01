@@ -46,7 +46,10 @@ fi
 
 if is_osx; then
     # --- aliases for OSX ---
-    
+
+    # brew
+    alias br='brew'
+
     # mdutil
     alias stopmdutil='sudo mdutil -i off /'
     alias startmdutil='sudo mdutil -i on /'
