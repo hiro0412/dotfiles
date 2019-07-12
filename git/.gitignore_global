@@ -3,3 +3,6 @@
 .DS_Store
 .ipynb_checkpoints/
 Pipfile.lock
+.pyc
+__pycache__/
+*.egg-info/
