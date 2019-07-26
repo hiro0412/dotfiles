@@ -12,6 +12,7 @@
     pretty-oneline = "format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset"
     pretty-graph = "format:%C(red)%h%Creset -%C(yellow reverse bold)%d%Creset %s %Cgreen(%cr)%Creset%C(black bold) (by %an)%Creset"
 [alias]
+    a = add
     b = branch
     d = diff
     f = fetch
