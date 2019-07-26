@@ -89,6 +89,38 @@ if type -t __git_ps1 > /dev/null 2>&1; then
     export GIT_PS1_SHOWDIRTYSTATE=1
 fi
     
+# for iTerm2
+# 参考: https://qiita.com/daicche/items/135d063444d152e63e1c
+iterm2_tab_color() {
+    if is_osx; then
+	echo -ne "\033]6;1;bg;red;brightness;$1\a"
+	echo -ne "\033]6;1;bg;green;brightness;$2\a"
+	echo -ne "\033]6;1;bg;blue;brightness;$3\a"
+    fi
+}
+
+iterm2_reset_tab_color() {
+    if is_osx; then
+	echo -ne "\033]6;1;bg;*;default\a"
+    fi
+}
+
+iterm2_set_title() {
+    if is_osx; then
+	echo -ne "\033]0;$*\007"
+    fi
+}
+
+function ssh() {
+    iterm2_tab_color 192 82 24
+    iterm2_set_title '-- ssh --'
+    /usr/bin/ssh $*
+    ssh_status=$?
+    iterm2_reset_tab_color
+    iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
+    return $ssh_status
+}
+
 # lesspipe
 export LESSOPEN=''
 if [ -x /usr/local/bin/lesspipe.sh ]; then
@@ -118,7 +150,7 @@ fi
 
 ## --  https://qiita.com/xtetsuji/items/31bc53e92d94b1602b5d
 # 履歴を記録する cd の再定義
-function cd {
+function _redef_pushed {
     if [ -z "$1" ] ; then
         # cd 連打で余計な $DIRSTACK を増やさない
         test "$PWD" != "$HOME" && pushd $HOME > /dev/null
@@ -127,6 +159,21 @@ function cd {
     else
         pushd "$1" > /dev/null
     fi
+}
+
+# cd したときにタブのtitleを "{親ディレクトリ}/{現在のディレクトリ}" にする
+function cd {
+    _redef_pushed $*
+    pushed_status=$?
+    iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
+    return $pushed_status
+}
+
+function popd {
+    popd $*
+    popd_status=$?
+    iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
+    return $popd_status
 }
 
 # ショートカットキーで移動するcd
