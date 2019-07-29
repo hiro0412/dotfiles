@@ -150,27 +150,34 @@ fi
 
 ## --  https://qiita.com/xtetsuji/items/31bc53e92d94b1602b5d
 # 履歴を記録する cd の再定義
-function _redef_pushed {
+function _redef_pushd {
     if [ -z "$1" ] ; then
         # cd 連打で余計な $DIRSTACK を増やさない
-        test "$PWD" != "$HOME" && pushd $HOME > /dev/null
+        test "$PWD" != "$HOME" && builtin pushd $HOME > /dev/null
     elif ( echo "$1" | egrep "^\.\.\.+$" > /dev/null ) ; then
-        cd $( echo "$1" | perl -ne 'print "../" x ( tr/\./\./ - 1 )' )
+        builtin cd $( echo "$1" | perl -ne 'print "../" x ( tr/\./\./ - 1 )' )
     else
-        pushd "$1" > /dev/null
+        builtin pushd "$1" > /dev/null
     fi
 }
 
 # cd したときにタブのtitleを "{親ディレクトリ}/{現在のディレクトリ}" にする
 function cd {
-    _redef_pushed $*
-    pushed_status=$?
+    _redef_pushd $*
+    pushd_status=$?
     iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
-    return $pushed_status
+    return $pushd_status
+}
+
+function pushd {
+    builtin pushd $*
+    pushd_status=$?
+    iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
+    return $pushd_status
 }
 
 function popd {
-    popd $*
+    builtin popd $*
     popd_status=$?
     iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
     return $popd_status
