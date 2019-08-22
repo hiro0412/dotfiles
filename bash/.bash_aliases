@@ -65,10 +65,14 @@ fi
 
 ## emacs
 alias emacs='emacsclient -c -a ""'
+alias em=emacs
 alias killemacs='emacsclient -e "(kill-emacs)"'
-
+alias killem=killemacs
 
 for file in $(ls ~/.bash_aliases.d/aliases* 2>/dev/null)
 do
     . $file
 done
+
+## popd
+alias pd=popd
