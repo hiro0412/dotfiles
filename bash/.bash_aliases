@@ -76,3 +76,9 @@ done
 
 ## popd
 alias pd=popd
+
+## aws
+if which -s aws;
+then
+    alias s3='aws s3'
+fi
