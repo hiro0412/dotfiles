@@ -50,3 +50,5 @@
 (el-get-bundle "monky")
 (el-get-bundle "markdown-preview-mode")
 (el-get-bundle "buffer-move")
+(el-get-bundle "yasuyk/web-beautify")
+(el-get-bundle "js2-mode")
