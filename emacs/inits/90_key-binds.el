@@ -35,3 +35,6 @@
 
 ;; M-g で goto-line
 (define-key global-map (kbd "M-g") 'goto-line)
+
+;; C-^ で 'hs-toggle-hiding
+(define-key global-map (kbd "C-^") 'hs-toggle-hiding)
