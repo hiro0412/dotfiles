@@ -52,3 +52,4 @@
 (el-get-bundle "buffer-move")
 (el-get-bundle "yasuyk/web-beautify")
 (el-get-bundle "js2-mode")
+(el-get-bundle "discover")
