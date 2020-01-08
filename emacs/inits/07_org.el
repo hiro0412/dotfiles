@@ -4,7 +4,7 @@
 (setq org-use-speed-commands t)
 
 ;; org-agenda
-(setq org-agenda-files '("/Users/honda.hiroaki/Dropbox/docs/SilverEgg/todo.org"))
+(setq org-agenda-files '("/Users/honda.hiroaki/Dropbox/docs/SilverEgg/2020/todo.org"))
 
 
 ;; key-binds
