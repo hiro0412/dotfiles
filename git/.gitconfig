@@ -16,6 +16,7 @@
     b = branch
     d = diff
     f = fetch
+    m = merge
     tags = tag -l
     branches = branch -a
     branch = branch -vv
