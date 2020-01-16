@@ -82,3 +82,6 @@ if which -s aws;
 then
     alias s3='aws s3'
 fi
+
+## virtualenv for python2
+alias virtualenv@2='virtualenv -p python2.7'
