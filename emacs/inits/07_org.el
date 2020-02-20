@@ -14,6 +14,8 @@
 (setq org-capture-templates
       '(("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?n %Un %in %a")
-        ("m" "とりあえずメモ" entry (file+headline "~/org/memo.org" "とりあえずメモ")
+        ("m" "仕事メモ" entry (file+headline "~/org/memo.org" "仕事メモ")
+         "* %?n %Un %i")
+        ("p" "プライベートメモ" entry (file+headline "~/org/private_memo.org" "プライベートメモ")
          "* %?n %Un %i")
          ))
