@@ -53,3 +53,4 @@
 (el-get-bundle "yasuyk/web-beautify")
 (el-get-bundle "js2-mode")
 (el-get-bundle "discover")
+(el-get-bundle "lua-mode")
