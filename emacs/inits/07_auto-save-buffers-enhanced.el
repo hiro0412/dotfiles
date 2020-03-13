@@ -7,7 +7,7 @@
   ;;; 特定のファイルのみ有効にする
   (setq auto-save-buffers-enhanced-include-regexps '(".+")) ;全ファイル
   ;; not-save-fileと.ignore, Makefileは除外する
-  (setq auto-save-buffers-enhanced-exclude-regexps '("^not-save-file" "\\.ignore$" "Makefile"))
+  (setq auto-save-buffers-enhanced-exclude-regexps '("^/ssh:" "/sudo:" "/multi:" "^not-save-file" "\\.ignore$" "Makefile"))
   ;;; Wroteのメッセージを抑制
   (setq auto-save-buffers-enhanced-quiet-save-p t)
   ;;; *scratch*も ~/.emacs.d/scratch に自動保存

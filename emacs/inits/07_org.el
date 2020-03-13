@@ -2,13 +2,15 @@
 
 ;; Key bindings are written in ./90_key-binds.el
 
+(setq my-todo-file "~/Dropbox/docs/SilverEgg/2020/todo.org")
+
 (setq org-startup-with-inline-images t)
 
 ;; speed-mode
 (setq org-use-speed-commands t)
 
 ;; org-agenda
-(setq org-agenda-files '("/Users/honda.hiroaki/Dropbox/docs/SilverEgg/2020/todo.org"))
+(setq org-agenda-files (list my-todo-file))
 
 ;; org-capture
 (setq org-capture-templates
@@ -19,3 +21,5 @@
         ("p" "プライベートメモ" entry (file+headline "~/org/private_memo.org" "プライベートメモ")
          "* %?n %Un %i")
          ))
+
+(find-file-noselect my-todo-file)
