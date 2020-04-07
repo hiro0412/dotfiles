@@ -54,3 +54,4 @@
 (el-get-bundle "js2-mode")
 (el-get-bundle "discover")
 (el-get-bundle "lua-mode")
+(el-get-bundle thomp/dired-launch)
