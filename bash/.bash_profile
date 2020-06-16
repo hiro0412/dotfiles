@@ -75,3 +75,8 @@ if [ -e $HOME/.local/bin/bashmarks.sh ]; then
     source $HOME/.local/bin/bashmarks.sh
 fi
 
+## arcanist
+if [ -d "${HOME}/phabricator/arcanist/bin" ];
+then
+   export PATH="${HOME}/phabricator/arcanist/bin:$PATH"
+fi
