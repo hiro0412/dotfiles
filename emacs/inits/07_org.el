@@ -23,3 +23,6 @@
          ))
 
 (find-file-noselect my-todo-file)
+
+;; 見出しの余分な*を消す
+(setq org-hide-leading-stars t)
