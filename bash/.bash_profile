@@ -80,3 +80,8 @@ if [ -d "${HOME}/phabricator/arcanist/bin" ];
 then
    export PATH="${HOME}/phabricator/arcanist/bin:$PATH"
 fi
+
+## openssl 1.1
+if [ -d "/usr/local/opt/openssl@1.1/bin:" ]; then
+   export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+fi
