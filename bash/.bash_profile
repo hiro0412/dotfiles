@@ -69,3 +69,9 @@ do
     fi
 done
 export MANPATH
+
+## bashmarks
+if [ -e $HOME/.local/bin/bashmarks.sh ]; then
+    source $HOME/.local/bin/bashmarks.sh
+fi
+
