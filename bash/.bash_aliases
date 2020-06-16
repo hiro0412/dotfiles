@@ -9,11 +9,9 @@ fi
 if ls --version > /dev/null 2>&1;
 then
     # GNU
-    alias l='l --color=auto -F'
     alias ls='ls --color=auto -F'
 else
     # osx
-    alias l='ls -GF'
     alias ls='ls -GF'
     alias ll='ls -GlT'
     alias llt='ls -GlTt'

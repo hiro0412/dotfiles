@@ -76,7 +76,6 @@ if is_osx; then
 fi
 
 ## git
-alias g='git'
 alias gl='git l'
 alias gll='git ll'
 alias ggl='git gl'
