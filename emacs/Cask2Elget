@@ -57,3 +57,4 @@
 (el-get-bundle thomp/dired-launch)
 (el-get-bundle "dired-k")
 (el-get-bundle ajtulloch/phabricator.el)
+(el-get-bundle "sql-indent")
