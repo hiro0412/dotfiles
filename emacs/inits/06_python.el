@@ -32,8 +32,10 @@
  )
 
 ;; elpy
-
-(elpy-enable)
+(when (require 'elpy)
+  (custom-set-variables '(elpy-rpc-virtualenv-path "current"))
+  (elpy-enable)
+  )
 ;; (setq python-check-command "lintrunner.py")
 
 (when (require 'flycheck nil t)
