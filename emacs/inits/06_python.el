@@ -33,7 +33,7 @@
 
 ;; elpy
 (when (require 'elpy)
-  (custom-set-variables '(elpy-rpc-virtualenv-path "current"))
+  (custom-set-variables '(elpy-rpc-virtualenv-path 'current))
   (elpy-enable)
   )
 ;; (setq python-check-command "lintrunner.py")
