@@ -45,3 +45,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+
+;; \(バックスラッシュ)が¥になってしまう問題への対処
+;; https://qiita.com/katoken-0215/items/4ac7d9b100bdce0b8920
+(define-key global-map [?¥] [?\\])
