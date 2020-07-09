@@ -1,3 +1,6 @@
+;; magit
+(require 'magit)
+
 ;; git-gutter+-mode
 ;; https://github.com/nonsequitur/git-gutter-plus
 (use-package git-gutter+
