@@ -1,3 +1,6 @@
+;; dired-filter (a part of dired-hacks)
+(require 'dired-filter)
+
 ;; 出展: https://qiita.com/l3msh0/items/8665122e01f6f5ef502f
 ;; diredを2つのウィンドウで開いている時に、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
 (setq dired-dwim-target t)
