@@ -63,3 +63,4 @@
 (el-get-bundle "leoliu/easy-kill")
 (el-get-bundle 'dired-hacks)
 (el-get-bundle "spaceline")
+(el-get-bundle "gonewest818/dimmer.el")
