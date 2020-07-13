@@ -62,3 +62,4 @@
 (el-get-bundle "git-gutter-fringe+")
 (el-get-bundle "leoliu/easy-kill")
 (el-get-bundle 'dired-hacks)
+(el-get-bundle "spaceline")
