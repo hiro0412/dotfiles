@@ -46,7 +46,7 @@
 
 ;; dimmer.el
 (when (require 'dimmer nil t)
-  (setq dimmer-fraction 0.6)
+  (setq dimmer-fraction 0.16)
   (setq dimmer-exclusion-regexp "^\\*helm\\|^ \\*Minibuf\\|^\\*Calendar") 
   (dimmer-mode 1))
 (with-eval-after-load "dimmer"
