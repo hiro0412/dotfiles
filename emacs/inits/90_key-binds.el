@@ -41,6 +41,9 @@
 ;; C-^ で 'hs-toggle-hiding
 (define-key global-map (kbd "C-^") 'hs-toggle-hiding)
 
+;; M-_ で whitespace-mode
+(define-key global-map (kbd "M-_") 'whitespace-mode)
+
 ;; == org-mode ==
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
