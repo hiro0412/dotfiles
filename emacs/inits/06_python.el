@@ -5,6 +5,11 @@
             (define-key python-mode-map "\C-m" 'newline-and-indent)  ; 改行時にインデントする
             ))
 
+; 保存時に無駄な空白を削除
+(add-hook 'before-save-hook
+	  (lambda () (when (eq major-mode 'python-mode)
+		       (delete-trailing-whitespace))))
+
 ;; ;;== flymake for python ==
 ;; (defun flymake-pyflakes-init ()
 ;;   (let* ((temp-file (flymake-init-create-temp-buffer-copy
@@ -40,4 +45,4 @@
 
 (when (require 'flycheck nil t)
   (remove-hook 'elpy-modules 'elpy-module-flymake)
-  (add-hook 'elpy-mode-hook 'flycheck-mode))  
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
