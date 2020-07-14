@@ -3,7 +3,7 @@
 (when (require 'auto-save-buffers-enhanced)
 
   ;;; 1秒後に保存
-  (setq auto-save-buffers-enhanced-interval 1)
+  (setq auto-save-buffers-enhanced-interval 5)
   ;;; 特定のファイルのみ有効にする
   (setq auto-save-buffers-enhanced-include-regexps '(".+")) ;全ファイル
   ;; not-save-fileと.ignore, Makefileは除外する
