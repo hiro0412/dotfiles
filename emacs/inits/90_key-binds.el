@@ -44,6 +44,12 @@
 ;; M-_ で whitespace-mode
 (define-key global-map (kbd "M-_") 'whitespace-mode)
 
+;; s-down で scroll-other-window
+(define-key global-map (kbd "<s-down>") 'scroll-other-window)
+
+;; s-up で scroll-other-window-down
+(define-key global-map (kbd "<s-up>") 'scroll-other-window-down)
+
 ;; == org-mode ==
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
