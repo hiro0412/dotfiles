@@ -1,5 +1,7 @@
 ;; magit
-(require 'magit)
+(when (require 'magit)
+  (global-set-key (kbd "C-x g") 'magit-status)
+  )
 
 ;; git-gutter+-mode
 ;; https://github.com/nonsequitur/git-gutter-plus
