@@ -31,15 +31,18 @@
 ;; (add-to-list 'python-shell-completion-native-disabled-interpreters
 ;;              "jupyter")
 
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args "--profile=emacs"
- )
+;; Use jupyter as python repl
+(setq python-shell-interpreter "jupyter"
+      python-shell-interpreter-args "console --simple-prompt"
+      python-shell-prompt-detect-failure-warning nil)
 
 ;; elpy
 (when (require 'elpy)
   (custom-set-variables '(elpy-rpc-virtualenv-path 'current))
   (elpy-enable)
+
+  (add-to-list 'python-shell-completion-native-disabled-interpreters
+             "jupyter")
   )
 ;; (setq python-check-command "lintrunner.py")
 
