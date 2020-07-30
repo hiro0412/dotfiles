@@ -58,3 +58,9 @@
     (dimmer-process-all))
   (add-hook 'focus-out-hook #'dimmer-off)
   (add-hook 'focus-in-hook #'dimmer-on))
+
+;; Modify color of fringe background 
+(face-remap-add-relative 'fringe '((:background "grey30")))
+
+;; https://github.com/emacs-jp/emacs-jp.github.com/issues/38#issuecomment-13986284
+(setq indicate-buffer-boundaries 'left)
