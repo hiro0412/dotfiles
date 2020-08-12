@@ -72,3 +72,5 @@
     ff = false
 [pull]
     ff = only
+[receive]
+    denyNonFastForwards = true
