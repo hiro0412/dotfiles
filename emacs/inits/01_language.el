@@ -25,3 +25,13 @@
     (global-set-key (kbd "s-,") #'(lambda () (interactive) (insert "，")))
     )
   )
+
+(when (eq system-type 'gnu/linux)
+  (progn
+    (require 'skk-setup)
+    (setq skk-user-directory "~/.emacs.d/ddskk")
+    (setq skk-use-kana-keyboard t)
+    (setq skk-kanagaki-keyboard-type 'omelet-jis)
+    (setq skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L")
+    )
+  )
