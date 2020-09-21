@@ -2,6 +2,7 @@ EXCLUSIONS := %.DS_Store %.git% %.gitmodules %~
 BASH_DOTFILES := $(filter-out $(EXCLUSIONS), $(wildcard bash/.??*))
 DOT_EMACS_DIR := $(HOME)/.emacs.d
 EMACS_INITS_ELS := $(filter-out $(EXCLUSIONS), $(wildcard emacs/inits/?*.el))
+DDSKK_FILES := $(filter-out $(EXCLUSIONS), $(wildcard emacs/ddskk/?*))
 GIT_DOTFILES := $(filter-out $(EXCLUSIONS), $(wildcard git/.??*))
 
 .PHONY: list
@@ -37,6 +38,8 @@ deploy_emacs:
 	mkdir -p $(DOT_EMACS_DIR)/inits
 	mkdir -p $(DOT_EMACS_DIR)/elisp
 	@$(foreach F, $(EMACS_INITS_ELS), ln -sfnv $(abspath $F) $(DOT_EMACS_DIR)/inits/$(notdir $F) 2>&1;)
+	mkdir -p $(DOT_EMACS_DIR)/ddskk
+	@$(foreach F, $(DDSKK_FILES), ln -sfnv $(abspath $F) $(DOT_EMACS_DIR)/ddskk/$(notdir $F) 2>&1;)
 	@echo "(deploy emacs dotfiles) <--- done. "
 
 .PHONY: deploy_git

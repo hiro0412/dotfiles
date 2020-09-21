@@ -1,0 +1,2 @@
+(setq skk-nicola-lshift-keys '(" "))
+(setq skk-nicola-rshift-keys '([henkan]))
