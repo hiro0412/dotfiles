@@ -22,3 +22,18 @@
 
     )
   )
+
+;; Font setting for linux
+(when (eq system-type 'gnu/linux)
+  (create-fontset-from-ascii-font
+   "Ricty Diminished-16:weight=normal:slant=normal"
+   nil
+   "Ricty Diminished")
+  (set-fontset-font "fontset-Ricty Diminished"
+		    'unicode
+		    "Ricty Diminished-16"
+		    nil
+		    'append)
+  (add-to-list 'default-frame-alist
+	       '(font . "fontset-Ricty Diminished"))
+  )
