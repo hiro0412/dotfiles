@@ -85,3 +85,10 @@ fi
 if [ -d "/usr/local/opt/openssl@1.1/bin:" ]; then
    export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 fi
+
+## Python
+
+# use Python 3.7 on MacOS
+if is_osx; then
+    export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+fi
