@@ -65,3 +65,4 @@
 (el-get-bundle "spaceline")
 (el-get-bundle "gonewest818/dimmer.el")
 (el-get-bundle "spacemacs-theme")
+(el-get-bundle "helm-swoop")
