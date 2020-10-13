@@ -66,3 +66,4 @@
 (el-get-bundle "gonewest818/dimmer.el")
 (el-get-bundle "spacemacs-theme")
 (el-get-bundle "helm-swoop")
+(el-get-bundle "helm-ag")

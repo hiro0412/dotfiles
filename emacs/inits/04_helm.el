@@ -45,3 +45,14 @@
 (helm-autoresize-mode 1)
 
 (helm-mode 1)
+
+
+;; helm-ag
+;; -------
+
+;; - http://emacs.rubikitch.com/helm-ag/
+;; - https://keisanbutsuriya.hateblo.jp/entry/2018/09/27/210034
+(setq helm-ag-base-command "rg -S --vimgrep --no-heading")  ;; use ripgrep
+(setq helm-ag-thing-at-point 'symbol)
+
+(global-set-key (kbd "C-M-g") 'helm-ag)
