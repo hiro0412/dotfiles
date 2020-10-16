@@ -92,3 +92,11 @@ fi
 if is_osx; then
     export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 fi
+
+## Google Cloud SDK
+
+# update PATH
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/google-cloud-sdk/path.bash.inc"; fi
+
+# enable shell command completion
+if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
