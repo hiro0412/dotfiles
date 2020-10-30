@@ -62,7 +62,7 @@ elif is_linux; then
 fi
 
 ## emacs
-alias emacs='emacsclient -nw -c -a ""'
+alias emacs='emacsclient -nw -c --alternate-editor= '
 alias em=emacs
 alias emw='/usr/local/bin/emacs'
 alias killemacs='emacsclient -e "(kill-emacs)"'
