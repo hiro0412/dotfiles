@@ -58,3 +58,6 @@
 ;; \(バックスラッシュ)が¥になってしまう問題への対処
 ;; https://qiita.com/katoken-0215/items/4ac7d9b100bdce0b8920
 (define-key global-map [?¥] [?\\])
+
+;; C-x C-b で ibuffer
+(define-key global-map (kbd "C-x C-b") 'ibuffer)
