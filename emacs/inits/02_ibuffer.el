@@ -16,6 +16,7 @@
 			(mode . css-mode)))
 	 ("Subversion" (name . "\*svn"))
 	 ("Magit" (name . "\*magit"))
+	 ("helm" (name . "\*helm"))
 	 ("Help" (or (name . "\*Help\*")
 		     (name . "\*Apropos\*")
 		     (name . "\*info\*"))))))
@@ -74,3 +75,6 @@
               (vc-status 16 16 :left)
               " "
               filename-and-process)))
+
+;; "/ _" で ibuffer-vc-set-filter-groups-by-vc-root
+(define-key ibuffer-mode-map (kbd "/ -") 'ibuffer-vc-set-filter-groups-by-vc-root)
