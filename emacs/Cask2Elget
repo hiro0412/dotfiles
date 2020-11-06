@@ -68,3 +68,4 @@
 (el-get-bundle "helm-swoop")
 (el-get-bundle "helm-ag")
 (el-get-bundle "ibuffer-vc")
+(el-get-bundle "term+")
