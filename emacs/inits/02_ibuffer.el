@@ -17,6 +17,7 @@
 	 ("Subversion" (name . "\*svn"))
 	 ("Magit" (name . "\*magit"))
 	 ("helm" (name . "\*helm"))
+	 ("Dired" (mode . dired-mode))
 	 ("Help" (or (name . "\*Help\*")
 		     (name . "\*Apropos\*")
 		     (name . "\*info\*"))))))
