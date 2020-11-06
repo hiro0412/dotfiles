@@ -77,4 +77,7 @@
               filename-and-process)))
 
 ;; "/ _" で ibuffer-vc-set-filter-groups-by-vc-root
-(define-key ibuffer-mode-map (kbd "/ -") 'ibuffer-vc-set-filter-groups-by-vc-root)
+(add-hook 'ibuffer-hook
+	  (lambda ()
+	    (define-key ibuffer-mode-map (kbd "/ -") 'ibuffer-vc-set-filter-groups-by-vc-root)
+	    ))
