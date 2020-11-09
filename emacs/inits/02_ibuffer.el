@@ -15,7 +15,7 @@
 	 ("Web Dev" (or (mode . html-mode)
 			(mode . css-mode)))
 	 ("Subversion" (name . "\*svn"))
-	 ("Magit" (name . "\*magit"))
+	 ("Magit" (name . "magit"))
 	 ("helm" (name . "\*helm"))
 	 ("Dired" (mode . dired-mode))
 	 ("Help" (or (name . "\*Help\*")
