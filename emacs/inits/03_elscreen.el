@@ -7,8 +7,15 @@
         )
     (define-key elscreen-map (kbd "C-z") 'suspend-emacs)
     )
+
   (setq elscreen-tab-display-kill-screen nil)
   (setq elscreen-tab-display-control nil)
+
+  (define-key global-map (kbd "s-<right>") 'elscreen-next)
+  (define-key global-map (kbd "s-<left>") 'elscreen-previous)
+
+  (require 'elscreen-color-theme)
+
   (elscreen-start)
   )
 
