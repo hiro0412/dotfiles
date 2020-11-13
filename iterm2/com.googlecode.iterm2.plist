@@ -22,7 +22,11 @@
 	<string>1FD1B741-703C-4176-BFA1-53C3EF70EFE7</string>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>EnableDivisionView</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
+	<false/>
+	<key>HideScrollbar</key>
 	<false/>
 	<key>Hotkey</key>
 	<false/>
@@ -34,6 +38,8 @@
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>524288</integer>
+	<key>IRMemory</key>
+	<integer>4</integer>
 	<key>LeftCommand</key>
 	<integer>2</integer>
 	<key>LeftOption</key>
@@ -43,9 +49,9 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/iterm2_config</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<string>{799, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -89,6 +95,8 @@
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>590 33 826 371 0 0 1440 877 </string>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>1415 432 799 448 1440 0 1920 1057 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>-762 269 735 382 -1920 0 1920 1057 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
@@ -102,7 +110,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1834 244 1508 813 1440 0 1920 1057 </string>
+	<string>2026 244 1319 813 1440 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1451 231 1060 813 1440 0 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -1010,7 +1018,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.21375713832487309</real>
+			<real>0.095849857233502533</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -2370,16 +2378,16 @@
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{-1920, 0}, {1920, 1080}}</string>
+		<string>{{1440, 0}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{-1263, 922}</string>
+		<string>{1509, 902}</string>
 	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{-1920, 0}, {1920, 1080}}</string>
+		<string>{{1440, 0}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{-1122, 788}</string>
+		<string>{1449, 905}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
@@ -2388,7 +2396,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>589353157.85781801</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>262</integer>
+	<integer>324</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2845,6 +2853,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentTab.titleOverrideFormat</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>currentTab.currentSession.tty</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -3250,7 +3266,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-09-02T02:52:22Z</date>
+	<date>2020-11-12T04:26:30Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
@@ -3270,7 +3286,7 @@
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>3</integer>
+	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
