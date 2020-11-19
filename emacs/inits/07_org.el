@@ -26,3 +26,6 @@
 
 ;; 見出しの余分な*を消す
 (setq org-hide-leading-stars t)
+
+;; org-edit-src-code したときの indent を0に
+(setq org-edit-src-content-indentation 0)
