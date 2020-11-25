@@ -69,3 +69,4 @@
 (el-get-bundle "helm-ag")
 (el-get-bundle "ibuffer-vc")
 (el-get-bundle "term+")
+(el-get-bundle "lujun9972/org-preview-html")
