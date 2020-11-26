@@ -52,9 +52,9 @@
 ;; 環境変数 PATH に exec-path を追加する。
 (setenv "PATH" (mapconcat 'identity exec-path ":"))
 
-;; initialize package.el
-(require 'package)
-(package-initialize)
+;; ;; initialize package.el
+;; (require 'package)
+;; (package-initialize)
 
 ;;; ==== init-loader ====
 (require 'init-loader)
