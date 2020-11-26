@@ -5,6 +5,9 @@
 
 (require 'cl)
 
+;; Supress start-up message
+(setq inhibit-startup-message t)
+
 ;; time locale
 (setq system-time-locale "C")
 
