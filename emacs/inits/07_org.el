@@ -22,7 +22,8 @@
          "* %?n %Un %i")
          ))
 
-(find-file-noselect my-todo-file)
+;; 遅いので一旦コメントアウト
+;(find-file-noselect my-todo-file)
 
 ;; 見出しの余分な*を消す
 (setq org-hide-leading-stars t)

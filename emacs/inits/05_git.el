@@ -1,12 +1,13 @@
-;; magit
-(when (require 'magit)
-  (global-set-key (kbd "C-x g") 'magit-status)
+;; == magit ==
+
+(use-package magit
+  :bind (("C-x g" . magit-status))
   )
 
-;; git-gutter+-mode
+;; == git-gutter+-mode ==
 ;; https://github.com/nonsequitur/git-gutter-plus
+
 (use-package git-gutter+
-  :ensure t
   :init (global-git-gutter+-mode)
   :config (progn
             (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
