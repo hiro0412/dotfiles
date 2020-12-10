@@ -100,3 +100,8 @@ if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/google-cloud
 
 # enable shell command completion
 if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
+
+## Suppress warning mesage on bash on Catalina ( https://support.apple.com/ja-jp/HT208050 )
+if is_osx; then
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
