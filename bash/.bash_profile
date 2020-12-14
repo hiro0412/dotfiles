@@ -45,6 +45,7 @@ CANDIDATES=(
     # "/usr/local/opt/coreutils/libexec/gnubin"  # GNU coreutils
     # "/usr/local/opt/findutils/libexec/gnubin"  # GNU findutils
     "/usr/local/opt/postgresql/bin"
+    "/usr/local/opt/texinfo/bin"  # texinfo
 )
 for ITEM in "${CANDIDATES[@]}"
 do
