@@ -70,3 +70,5 @@
 (el-get-bundle "ibuffer-vc")
 (el-get-bundle "term+")
 (el-get-bundle "lujun9972/org-preview-html")
+(el-get-bundle "undohist")
+(el-get-bundle "undo-tree")
