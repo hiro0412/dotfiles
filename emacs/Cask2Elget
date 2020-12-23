@@ -72,3 +72,4 @@
 (el-get-bundle "lujun9972/org-preview-html")
 (el-get-bundle "undohist")
 (el-get-bundle "undo-tree")
+(el-get-bundle "ess")
