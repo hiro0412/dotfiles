@@ -80,6 +80,7 @@ alias pd=popd
 if which -s aws;
 then
     alias s3='aws s3'
+    alias abatchlog='aws logs filter-log-events --log-group-name /aws/batch/job --log-stream-names'
 fi
 
 ## virtualenv for python2
