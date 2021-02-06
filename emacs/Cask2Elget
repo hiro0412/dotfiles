@@ -73,3 +73,5 @@
 (el-get-bundle "undohist")
 (el-get-bundle "undo-tree")
 (el-get-bundle "ess")
+(el-get-bundle "all-the-icons")
+(el-get-bundle "emacs-neotree")
