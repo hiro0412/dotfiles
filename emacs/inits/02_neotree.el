@@ -14,3 +14,9 @@
 (setq neo-smart-open t)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 (setq neo-autorefresh nil)
+
+;; neotreeでファイルを新規作成した場合のそのファイルを開く
+(setq neo-create-file-auto-open t)
+
+;; Windowをリサイズできるように
+(setq neo-window-fixed-size nil)
