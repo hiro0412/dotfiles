@@ -75,3 +75,4 @@
 (el-get-bundle "ess")
 (el-get-bundle "all-the-icons")
 (el-get-bundle "emacs-neotree")
+(el-get-bundle tarsius/hl-todo)
