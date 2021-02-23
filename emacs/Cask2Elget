@@ -71,8 +71,10 @@
 (el-get-bundle "term+")
 (el-get-bundle "lujun9972/org-preview-html")
 (el-get-bundle "undohist")
-(el-get-bundle "undo-tree")
+(el-get-bundle "undo-tree"
+ :url "https://gitlab.com/tsc25/undo-tree/-/raw/master/undo-tree.el")
 (el-get-bundle "ess")
 (el-get-bundle "all-the-icons")
 (el-get-bundle "emacs-neotree")
 (el-get-bundle tarsius/hl-todo)
+(el-get-bundle "queue")

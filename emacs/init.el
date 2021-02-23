@@ -85,7 +85,7 @@
  '(elpy-rpc-virtualenv-path (quote current))
  '(package-selected-packages
    (quote
-    (ess spacemacs-theme git-gutter+ markdown-mode auto-save-buffers-enhanced edit-indirect pipenv howm yasnippet web-mode use-package smex smartparens projectile prodigy popwin paren-completer open-junk-file nyan-mode multiple-cursors magit init-loader idle-highlight-mode htmlize highlight-symbol flycheck-cask expand-region exec-path-from-shell drag-stuff)))
+    (queue ess spacemacs-theme git-gutter+ markdown-mode auto-save-buffers-enhanced edit-indirect pipenv howm yasnippet web-mode use-package smex smartparens projectile prodigy popwin paren-completer open-junk-file nyan-mode multiple-cursors magit init-loader idle-highlight-mode htmlize highlight-symbol flycheck-cask expand-region exec-path-from-shell drag-stuff)))
  '(smerge-command-prefix "v"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
