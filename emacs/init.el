@@ -77,15 +77,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   (quote
-    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "ef0d2cd0b5ecebd6794a2012ffa08393e536b33e3e377ac2930bf5d7304dcb21" default)))
+   '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "ef0d2cd0b5ecebd6794a2012ffa08393e536b33e3e377ac2930bf5d7304dcb21" default))
  '(diffusion-repo-prefix-list
-   (quote
-    (("image-recommender-batch" "https://phabricator.silveregg.net/diffusion/IMAGERECOMMENDERBATCH"))))
- '(elpy-rpc-virtualenv-path (quote current))
+   '(("image-recommender-batch" "https://phabricator.silveregg.net/diffusion/IMAGERECOMMENDERBATCH")))
+ '(elpy-rpc-virtualenv-path 'current)
  '(package-selected-packages
-   (quote
-    (queue ess spacemacs-theme git-gutter+ markdown-mode auto-save-buffers-enhanced edit-indirect pipenv howm yasnippet web-mode use-package smex smartparens projectile prodigy popwin paren-completer open-junk-file nyan-mode multiple-cursors magit init-loader idle-highlight-mode htmlize highlight-symbol flycheck-cask expand-region exec-path-from-shell drag-stuff)))
+   '(queue ess spacemacs-theme git-gutter+ markdown-mode auto-save-buffers-enhanced edit-indirect pipenv howm yasnippet web-mode use-package smex smartparens projectile prodigy popwin paren-completer open-junk-file nyan-mode multiple-cursors magit init-loader idle-highlight-mode htmlize highlight-symbol flycheck-cask expand-region exec-path-from-shell drag-stuff))
  '(smerge-command-prefix "v"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
