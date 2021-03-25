@@ -61,3 +61,6 @@
 
 ;; C-x C-b で ibuffer
 (define-key global-map (kbd "C-x C-b") 'ibuffer)
+
+;; C-c C-: で toggle-truncate-lines
+(define-key global-map (kbd "C-c C-:") 'toggle-truncate-lines)
