@@ -78,3 +78,5 @@
 (el-get-bundle "emacs-neotree")
 (el-get-bundle tarsius/hl-todo)
 (el-get-bundle "queue")
+(el-get-bundle "google-translate")
+(el-get-bundle "popup")
