@@ -11,6 +11,7 @@
 ;; time locale
 (setq system-time-locale "C")
 
+;; https://tarao.hatenablog.com/entry/20150221/1424518030
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
@@ -18,7 +19,7 @@
 (let ((versioned-dir (locate-user-emacs-file emacs-version)))
   (setq el-get-dir (expand-file-name "el-get" versioned-dir)
         package-user-dir (expand-file-name "elpa" versioned-dir)))
-        
+
 (add-to-list 'load-path (concat el-get-dir "/el-get"))
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
