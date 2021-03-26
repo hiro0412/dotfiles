@@ -1,7 +1,12 @@
+(setq dired-listing-switches "-aBhlF --group-directories-first")
+
+;; Avoid error "ls does not support --dired" on Mac
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired t
+        insert-directory-program "/usr/local/bin/gls"))
+
 ;; dired-filter (a part of dired-hacks)
 (require 'dired-filter)
-
-(setq dired-listing-switches "-alhF")
 
 ;; 出展: https://qiita.com/l3msh0/items/8665122e01f6f5ef502f
 ;; diredを2つのウィンドウで開いている時に、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
