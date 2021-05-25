@@ -89,9 +89,9 @@ fi
 
 ## Python
 
-# use Python 3.7 on MacOS
+# use Python 3.8 on MacOS
 if is_osx; then
-    export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+    export PATH="/usr/local/Cellar/python@3.8/3.8.10/bin:$PATH"
 fi
 
 ## Google Cloud SDK
