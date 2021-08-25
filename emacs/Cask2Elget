@@ -46,7 +46,7 @@
 (el-get-bundle "AdamNiederer/vue-html-mode")
 (el-get-bundle "AdamNiederer/ssass-mode")
 (el-get-bundle "edit-indirect")
-(el-get-bundle "auto-save-buffers-enhanced")
+(el-get-bundle "ChillarAnand/real-auto-save")
 (el-get-bundle "monky")
 (el-get-bundle "markdown-preview-mode")
 (el-get-bundle "buffer-move")
