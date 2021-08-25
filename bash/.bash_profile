@@ -5,14 +5,6 @@ fi
 ## for Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 9)
 
-## pyenv settings ##
-if [ -d "${HOME}/.pyenv" ];
-then
-   export PYENV_ROOT="${HOME}/.pyenv"
-   #export PATH="${PYENV_ROOT}/bin:$PATH"
-   #eval "$(pyenv init -)"
-fi
-
 ## android-tools
 if [ -d $HOME/Library/Android/sdk/platform-tools ];
 then
@@ -85,13 +77,6 @@ fi
 ## openssl 1.1
 if [ -d "/usr/local/opt/openssl@1.1/bin:" ]; then
    export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-fi
-
-## Python
-
-# use Python 3.8 on MacOS
-if is_osx; then
-    export PATH="/usr/local/Cellar/python@3.8/3.8.10/bin:$PATH"
 fi
 
 ## Google Cloud SDK
