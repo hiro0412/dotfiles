@@ -91,3 +91,8 @@ if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/google
 if is_osx; then
     export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
+
+## Cargo
+if [ -d "${HOME}/.cargo/bin" ]; then
+   export PATH="${HOME}/.cargo/bin:$PATH"
+fi
