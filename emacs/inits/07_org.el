@@ -6,6 +6,8 @@
 
 (setq org-startup-with-inline-images t)
 
+(setq org-image-actual-width nil)
+
 ;; speed-mode
 (setq org-use-speed-commands t)
 
