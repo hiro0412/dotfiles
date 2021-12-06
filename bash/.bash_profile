@@ -2,6 +2,12 @@ if [ -f ~/.bashrc ] ; then
     . ~/.bashrc
 fi
 
+## ~/.local/bin
+if [ -d $HOME/.local/bin ];
+then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
 ## for Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 9)
 
@@ -96,3 +102,9 @@ fi
 if [ -d "${HOME}/.cargo/bin" ]; then
    export PATH="${HOME}/.cargo/bin:$PATH"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/google-cloud-sdk/path.bash.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
