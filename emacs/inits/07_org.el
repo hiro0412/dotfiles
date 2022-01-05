@@ -2,7 +2,7 @@
 
 ;; Key bindings are written in ./90_key-binds.el
 
-(setq my-todo-file "~/Dropbox/docs/SilverEgg/2021/todo.org")
+(setq my-todo-file "~/Dropbox/docs/SilverEgg/2022/todo.org")
 
 (setq org-startup-with-inline-images t)
 

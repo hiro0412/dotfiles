@@ -86,3 +86,7 @@
   (sql-set-product "postgres"))
 
 (add-hook 'sql-mode-hook 'sql-mode-hooks)
+
+;; sqlformat
+(setq sqlformat-command 'pgformatter)
+(setq sqlformat-args '("-s2" "-g"))
