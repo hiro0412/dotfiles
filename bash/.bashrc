@@ -68,12 +68,12 @@ export EDITOR='emacsclient -q -nw -c --alternate-editor= '
 export LANG=ja_JP.UTF-8
 export XMODIFIERS=@im=kinput2
 
-# bash_completion
-if is_osx; then
-    if [ -f `brew --prefix`/etc/bash_completion ]; then
-	. `brew --prefix`/etc/bash_completion
-    fi
-fi
+# # bash_completion
+# if is_osx; then
+#     if [ -f `brew --prefix`/etc/bash_completion ]; then
+# 	. `brew --prefix`/etc/bash_completion
+#     fi
+# fi
 
 ## git
 alias gl='git l'
@@ -160,13 +160,13 @@ function _redef_pushd {
     fi
 }
 
-# cd したときにタブのtitleを "{親ディレクトリ}/{現在のディレクトリ}" にする
-function cd {
-    _redef_pushd $*
-    pushd_status=$?
-    iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
-    return $pushd_status
-}
+# # cd したときにタブのtitleを "{親ディレクトリ}/{現在のディレクトリ}" にする
+# function cd {
+#     _redef_pushd $*
+#     pushd_status=$?
+#     iterm2_set_title "$(pwd | rev | cut -f1-2 -d/ | rev)"
+#     return $pushd_status
+# }
 
 function pushd {
     builtin pushd $*

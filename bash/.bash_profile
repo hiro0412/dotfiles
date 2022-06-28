@@ -8,6 +8,9 @@ then
     export PATH=$HOME/.local/bin:$PATH
 fi
 
+## bash completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 ## for Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 9)
 
