@@ -1,2 +1,5 @@
+(setq skk-use-kana-keyboard t)
+(setq skk-kanagaki-keyboard-type 'omelet-jis)
+
 (setq skk-nicola-lshift-keys '(" "))
 (setq skk-nicola-rshift-keys '([henkan]))
