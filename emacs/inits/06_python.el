@@ -42,7 +42,9 @@
   (elpy-enable)
 
   (add-to-list 'python-shell-completion-native-disabled-interpreters
-             "jupyter")
+               "jupyter")
+
+  (add-hook 'elpy-mode-hook 'poetry-tracking-mode)
   )
 ;; (setq python-check-command "lintrunner.py")
 
