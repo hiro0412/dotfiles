@@ -65,6 +65,7 @@ fi
 alias emacs='emacsclient -nw -c --alternate-editor= '
 alias em=emacs
 alias emw='/usr/local/bin/emacs'
+alias emw28='/usr/local/bin/emacs-28'
 alias killemacs='emacsclient -e "(kill-emacs)"'
 alias killem=killemacs
 
