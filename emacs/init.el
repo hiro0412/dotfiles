@@ -540,6 +540,9 @@
     (moody-replace-vc-mode)
     )
 
+  (line-number-mode t)
+  (column-number-mode t)
+
   ;; --- modus-themes ---
   (leaf modus-themes
     :doc "Highly accessible themes (WCAG AAA)"
