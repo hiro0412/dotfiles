@@ -45,6 +45,7 @@ CANDIDATES=(
     "/usr/local/opt/postgresql/bin"
     "/usr/local/opt/texinfo/bin"  # texinfo
     "${HOME}/.local/bin"
+    "${HOME}/go/bin"
     "${HOME}/phabricator/arcanist/bin"
     "${HOME}/bin"
 )
