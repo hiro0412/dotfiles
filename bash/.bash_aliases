@@ -62,12 +62,12 @@ elif is_linux; then
 fi
 
 ## emacs
-alias emacs='emacsclient -nw -c --alternate-editor= '
+#alias emacs='emacsclient -nw -c --alternate-editor= '
 alias em=emacs
-alias emw='/usr/local/bin/emacs'
-alias emw28='/usr/local/bin/emacs-28'
-alias killemacs='emacsclient -e "(kill-emacs)"'
-alias killem=killemacs
+#alias emw='/usr/local/bin/emacs'
+#alias emw28='/usr/local/bin/emacs-28'
+#alias killemacs='emacsclient -e "(kill-emacs)"'
+#alias killem=killemacs
 
 for file in $(ls ~/.bash_aliases.d/aliases* 2>/dev/null)
 do
