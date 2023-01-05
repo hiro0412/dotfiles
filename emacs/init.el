@@ -246,6 +246,13 @@
   
   )
 
+;; --- yaml --
+(leaf yaml-mode
+  :ensure t
+  :leaf-defer t
+  :mode ("\\.yaml\\'" . yaml-mode))
+
+
 ;; Window Management
 ;; =================
 
