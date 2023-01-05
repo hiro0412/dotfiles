@@ -564,7 +564,7 @@
     ;:config (modus-themes-load-vivendi)
     )
   
-  (modus-themes-load-vivendi)
+  (load-theme 'modus-vivendi)
   )
 
 
@@ -610,6 +610,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("5fdc0f5fea841aff2ef6a75e3af0ce4b84389f42e57a93edc3320ac15337dc10" default))
  '(package-selected-packages
    '(queue spacemacs-theme csv-mode shut-up paren-completer package-build git-commit bind-key async))
  '(safe-local-variable-values '((eval hs-minor-mode t))))
