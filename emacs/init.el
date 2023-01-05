@@ -564,7 +564,7 @@
     ;:config (modus-themes-load-vivendi)
     )
   
-  (load-theme 'modus-vivendi)
+  (load-theme 'modus-vivendi t)
   )
 
 
