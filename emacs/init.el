@@ -366,6 +366,51 @@
   :bind ("M-p" . hydra-window/body)
   )
 
+;; --- tab-bar-mode ---
+
+(leaf tab-bar-mode
+  :init
+  (defvar my:ctrl-z-map (make-sparse-keymap)
+    "My original keymap binded to C-z.")
+  (defalias 'my:ctrl-z-prefix my:ctrl-z-map)
+  (define-key global-map (kbd "C-z") 'my:ctrl-z-prefix)
+  (define-key my:ctrl-z-map (kbd "c")   'tab-new)
+  (define-key my:ctrl-z-map (kbd "C-c") 'tab-new)
+  (define-key my:ctrl-z-map (kbd "k")   'tab-close)
+  (define-key my:ctrl-z-map (kbd "C-k") 'tab-close)
+  (define-key my:ctrl-z-map (kbd "n")   'tab-next)
+  (define-key my:ctrl-z-map (kbd "C-n") 'tab-next)
+  (define-key my:ctrl-z-map (kbd "p")   'tab-previous)
+  (define-key my:ctrl-z-map (kbd "C-p") 'tab-previous)
+  ;;
+  (defun my:tab-bar-tab-name-truncated ()
+    "Custom: Generate tab name from the buffer of the selected window."
+    (let ((tab-name (buffer-name (window-buffer (minibuffer-selected-window))))
+          (ellipsis (cond
+                     (tab-bar-tab-name-ellipsis)
+                     ((char-displayable-p ?…) "…")
+                     ("..."))))
+      (if (< (length tab-name) tab-bar-tab-name-truncated-max)
+          (format "%-12s" tab-name)
+        (propertize (truncate-string-to-width
+                     tab-name tab-bar-tab-name-truncated-max nil nil
+                     ellipsis)
+                    'help-echo tab-name))))
+    :custom
+  ((tab-bar-close-button-show      . nil)
+   (tab-bar-close-last-tab-choice  . nil)
+   (tab-bar-close-tab-select       . 'left)
+   (tab-bar-history-mode           . nil)
+   (tab-bar-new-tab-choice         . "*scratch*")
+   (tab-bar-new-button-show        . nil)
+   (tab-bar-tab-name-function      . 'my:tab-bar-tab-name-truncated)
+   (tab-bar-tab-name-truncated-max . 12)
+   (tab-bar-separator              . "")
+   )
+  :config
+  (tab-bar-mode +1)
+  )
+
 
 ;; Key Bindings
 ;; ============
