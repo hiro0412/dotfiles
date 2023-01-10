@@ -1,5 +1,0 @@
-(when (require 'highlight-indentation)
-  (add-hook 'yaml-mode-hook 'highlight-indentation-mode)
-  (add-hook 'yaml-mode-hook 'highlight-indentation-current-column-mode)
-  (add-hook 'yaml-mode-hook '(lambda() (setq highlight-indentation-offset 2)))
-)
