@@ -242,9 +242,10 @@
   ;; --- poetry ---
   (leaf poetry
     :ensure t
-    :hook ((elpy-mode-hook . poetry-tracking-mode)))
+    ;; :hook ((elpy-mode-hook . poetry-tracking-mode))
+    )
   
-  )
+)
 
 ;; --- yaml --
 (leaf yaml-mode
