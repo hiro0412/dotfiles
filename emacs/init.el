@@ -253,6 +253,20 @@
   :mode ("\\.yaml\\'" . yaml-mode))
 
 
+;; --- docker --
+
+(leaf docker
+  :config
+
+  (leaf docker
+    :ensure t
+    :bind ("C-c d" . docker))
+
+  (leaf docker-tramp
+    :ensure t
+    )
+)
+
 ;; Window Management
 ;; =================
 
