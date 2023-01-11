@@ -459,6 +459,13 @@
 	 ("C-c C-:" . toggle-truncate-lines)
 	 ))
 
+ ;; Karabinar-Elements で "Change ¥ to Alt+¥" を設定している場合に \ に変換されるようにする
+(leaf leaf-convert
+  :config
+  (define-key global-map
+    [8388773] ; [?\s-¥]
+    [92] ; [?\\]
+    ))
 
 
 ;; --- hydra zoom ---
