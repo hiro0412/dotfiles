@@ -265,6 +265,13 @@
   (leaf docker-tramp
     :ensure t
     )
+
+  (leaf dockerfile-mode
+    :ensure t
+    :mode "Dockerfile\\'")
+
+  (leaf docker-compose-mode
+    :ensure t)
 )
 
 ;; Window Management
