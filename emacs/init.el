@@ -639,7 +639,7 @@
 ;; time locale
 (setq system-time-locale "C")
 
-;; fido-vertical-mode
+;; fido-vertical-mode (補完)
 (fido-vertical-mode t)
 
 
