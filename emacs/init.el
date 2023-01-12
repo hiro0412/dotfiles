@@ -648,6 +648,37 @@
   (load-theme 'modus-vivendi t)
   )
 
+;; --- recentf ---
+
+(leaf recentf
+  :config
+  (leaf recentf
+    ;; Settings for recentf itself
+    :setq ((recentf-max-saved-items . 2000)
+	   (recentf-auto-cleanup quote never)
+	   (recentf-exclude quote
+			    ("/recentf"
+			     "COMMIT_EDITMSG"
+			     "/.?TAGS"
+			     "^/sudo:"
+			     "/\\.emacs\\.d/games/*-scores"
+			     "/\\.emacs\\.d/\\.cask/")))
+    :config
+    (setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+    (recentf-mode t)
+    )
+
+  (leaf icomplete
+    ;; open recent files with icomplete interface
+    :config
+    (defun my/find-recent-file ()
+      (interactive)
+      (find-file (completing-read "Find recent file: " recentf-list)))
+    :bind
+    (("C-c t" . my/find-recent-file))
+    )
+  )
+
 
 (setq inhibit-startup-message t)
 
