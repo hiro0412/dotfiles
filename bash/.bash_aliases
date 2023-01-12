@@ -86,3 +86,15 @@ fi
 
 ## virtualenv for python2
 alias virtualenv@2='virtualenv -p python2.7'
+
+## for Docker
+# referred to this blog: https://tech.anti-pattern.co.jp/peco-de-docker-exec/
+if which -s docker;
+then
+  alias dps='docker ps'
+  if which -s peco;
+  then
+      alias dbash='docker exec -it $(docker ps | peco | awk "{print \$1}") bash'
+      alias dlog='docker log $(docker ps | peco | awk "{print \$1}")'
+  fi
+fi
