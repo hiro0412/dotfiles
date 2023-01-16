@@ -92,9 +92,13 @@ alias virtualenv@2='virtualenv -p python2.7'
 if which -s docker;
 then
   alias dps='docker ps'
+  alias dimgs='docker images'
   if which -s peco;
   then
       alias dbash='docker exec -it $(docker ps | peco | awk "{print \$1}") bash'
-      alias dlog='docker log $(docker ps | peco | awk "{print \$1}")'
+      alias dlog='docker logs $(docker ps | peco | awk "{print \$1}")'
+      alias dstop='docker stop $(docker ps | peco | awk "{print \$1}")'
+      alias dkill='docker kill $(docker ps | peco | awk "{print \$1}")'
+      alias drm='docker rm $(docker ps -a | peco | awk "{print \$1}")'
   fi
 fi
