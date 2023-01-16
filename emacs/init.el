@@ -275,6 +275,13 @@
     :ensure t)
 )
 
+;; --- log4j ---
+
+(leaf log4j-mode
+  :ensure t
+  :custom ((log4j-highlight-only-keyword . t)))
+
+
 ;; Window Management
 ;; =================
 
