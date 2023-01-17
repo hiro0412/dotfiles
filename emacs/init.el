@@ -56,7 +56,7 @@
   :doc "Outline-based notes management and organizer"
   :tag "builtin"
   :added "2021-12-19"
-  :setq ((my-todo-file . "~/Dropbox/docs/SilverEgg/2021/todo.org")
+  :setq ((my-todo-file . "~/Dropbox/docs/SilverEgg/2023/todo.org")
 	 (org-startup-with-inline-images . t)
 	 (org-use-speed-commands . t)
 	 (org-capture-templates quote
