@@ -1,4 +1,8 @@
 ;; -*- Mode: Emacs-Lisp ; Coding: utf-8; lexical-binding: t; eval: (hs-minor-mode t) -*-
+
+;; == Rerference Articles ==
+;; - https://qiita.com/conao3/items/347d7e472afd0c58fbd7
+
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
