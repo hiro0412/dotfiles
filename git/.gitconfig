@@ -49,6 +49,8 @@
     stdiff = "!f(){ git diff HEAD..stash@{$1}; };f"
     delbranch = "branch -D"
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+    # https://qiita.com/scalper/items/1905b47209989dda5648
+    dist = "!mkdir ./dist; git archive --format=tar HEAD | tar -C ./dist -xf -"
 [push]
     default = current
 [fetch]
