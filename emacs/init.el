@@ -285,6 +285,12 @@
   :ensure t
   :custom ((log4j-highlight-only-keyword . t)))
 
+;; --- js-mode ---
+
+(leaf js-mode
+  :hook (js-mode-hook . hs-minor-mode)
+  )
+
 
 ;; Window Management
 ;; =================
