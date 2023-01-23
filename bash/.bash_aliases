@@ -23,7 +23,7 @@ else
 fi
     
 ## colordiff
-if which -s colordiff;
+if which colordiff > /dev/null;
 then
     alias diff='colordiff -u'
 else
@@ -31,7 +31,7 @@ else
 fi
 
 ## tig
-if which -s tig;
+if which tig > /dev/null;
 then
     alias t='tig'
     alias ta='tig --all'
@@ -78,7 +78,7 @@ done
 alias pd=popd
 
 ## aws
-if which -s aws;
+if which aws > /dev/null;
 then
     alias s3='aws s3'
     alias abatchlog='aws logs filter-log-events --log-group-name /aws/batch/job --log-stream-names'
@@ -89,11 +89,11 @@ alias virtualenv@2='virtualenv -p python2.7'
 
 ## for Docker
 # referred to this blog: https://tech.anti-pattern.co.jp/peco-de-docker-exec/
-if which -s docker;
+if which docker > /dev/null;
 then
   alias dps='docker ps'
   alias dimgs='docker images'
-  if which -s peco;
+  if which peco >/dev/null;
   then
       alias dbash='docker exec -it $(docker ps | peco | awk "{print \$1}") bash'
       alias dlog='docker logs $(docker ps | peco | awk "{print \$1}")'
