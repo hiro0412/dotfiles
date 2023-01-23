@@ -7,7 +7,9 @@ fi
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 ## for Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 9)
+if [ -x /usr/libexec/java_home ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home -v 9)
+fi
 
 ## android-tools
 if [ -d $HOME/Library/Android/sdk/platform-tools ];
