@@ -89,3 +89,13 @@ fi
 if is_osx; then
     export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
+
+
+# WSL specific settings.
+if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ];
+then
+    # If you use an X Server that is not WSLg, you need to get the Host IP from
+    # the`/etc/resolv.conf` file, and write into the DISPLAY environment
+    # variable
+    export DISPLAY=$(grep nameserver /etc/resolv.conf | cut -f2 -d' '):0
+fi

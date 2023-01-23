@@ -242,3 +242,12 @@ function cdj {
     echo "directory alias \"$arg\" is not found"
     return 1
 }
+
+# WSL specific settings.
+if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ];
+then
+    if shopt -q login_shell; then
+	# Display message of the day.
+	run-parts /etc/update-motd.d 2>/dev/null
+    fi
+fi
