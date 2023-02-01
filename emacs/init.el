@@ -80,6 +80,8 @@
   :bind (("C-c l" . org-store-link)
 	 ("C-c a" . org-agenda)
 	 ("C-c c" . org-capture))
+  :custom ((org-fontify-quote-and-verse-blocks . t)
+	   (org-fontify-whole-block-delimiter-line . t))
   )
 
 
@@ -643,6 +645,7 @@
 
   ;; --- modus-themes ---
   (leaf modus-themes
+    :disabled t
     :doc "Highly accessible themes (WCAG AAA)"
     :req "emacs-27.1"
     :tag "accessibility" "theme" "faces" "emacs>=27.1"
@@ -662,7 +665,15 @@
     ;:config (modus-themes-load-vivendi)
     )
   
-  (load-theme 'modus-vivendi t)
+  ;(load-theme 'modus-vivendi t)
+
+  ;; --- zenburn ---
+  (leaf zenburn-theme
+    :ensure t
+    :custom ((zenburn-use-variable-pitch . t)
+	     (zenburn-scale-org-headlines . t)
+	     (zenburn-scale-outline-headlines . t))
+    :init (load-theme 'zenburn t))
   )
 
 ;; --- recentf ---
