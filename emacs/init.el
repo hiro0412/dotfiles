@@ -77,6 +77,9 @@
 	 (org-edit-src-content-indentation . 0))
   :config
   (setq org-agenda-files (list my-todo-file))
+  (leaf org-preview-html
+    :ensure t)
+
   :bind (("C-c l" . org-store-link)
 	 ("C-c a" . org-agenda)
 	 ("C-c c" . org-capture))
