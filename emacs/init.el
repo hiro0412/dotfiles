@@ -694,6 +694,9 @@
     :bind
     (("C-c t" . my/find-recent-file))
     )
+
+  (leaf recentf-ext
+    :ensure t)
   )
 
 
