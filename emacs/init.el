@@ -485,7 +485,6 @@
 	  ("<up>" . windmove-up))
 	 (esc-map
 	  ("<down>" . windmove-down))
-	 ("C-^" . hs-toggle-hiding)
 	 ("M-%" . query-replace-regexp)
 	 ("M-¥" . delete-horizontal-space)
 	 ("M-g" . goto-line)
@@ -494,7 +493,7 @@
 	 ("<s-down>" . scroll-other-window)
 	 ("<s-up>" . scroll-other-window-down)
 	 ("C-x C-b" . ibuffer)
-	 ("C-c C-:" . toggle-truncate-lines)
+	 ("C-x t" . toggle-truncate-lines)
 	 ))
 
  ;; Karabinar-Elements で "Change ¥ to Alt+¥" を設定している場合に \ に変換されるようにする
