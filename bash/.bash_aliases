@@ -58,7 +58,21 @@ if is_osx; then
     
 elif is_linux; then
     # --- aliases for Linux ---
-    :
+
+    # --- Setup to run xwidget on emacs28 on Linux in WSL ---
+    #
+    # "WEBKIT_FORCE_SANDBOX=0" Launching xwidget without it causes emacs to
+    # crash.
+    #
+    # Since I do not fully understand the impact of the change in the
+    # WEBKIT_FORCE_SANDBOX environment variable, wrap it in a function to
+    # localize the scope of the impact to emacs only.
+
+    if [ -x ${HOME}/.local/bin/emacs ]; then
+	function emacs () {
+	    WEBKIT_FORCE_SANDBOX=0 ${HOME}/.local/bin/emacs $*
+	}
+    fi
 fi
 
 ## emacs
