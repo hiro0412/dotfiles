@@ -79,6 +79,8 @@
   (setq org-agenda-files (list my-todo-file))
   (leaf org-preview-html
     :ensure t)
+  (leaf ox-gfm
+    :ensure t)
 
   :bind (("C-c l" . org-store-link)
 	 ("C-c a" . org-agenda)
@@ -295,6 +297,12 @@
 (leaf js-mode
   :hook (js-mode-hook . hs-minor-mode)
   )
+
+;; --- grip-mode ---
+
+(leaf grip-mode
+  :ensure t
+)
 
 
 ;; Window Management
