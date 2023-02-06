@@ -75,6 +75,15 @@ export XMODIFIERS=@im=kinput2
 #     fi
 # fi
 
+if type sed >/dev/null && ! sed --version >/dev/null 2>&1; then
+    if type gsed >/dev/null; then
+	alias sed='gsed'
+    else
+	echo "In the case of Mac OS, this script assumes you have gsed "
+	"(GNU sed), but your system does not seem to have it." >&2
+    fi
+fi
+
 ## git
 alias gl='git l'
 alias gll='git ll'
