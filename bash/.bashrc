@@ -134,13 +134,13 @@ export LESSOPEN=''
 if [ -x /usr/local/bin/lesspipe.sh ]; then
     eval "$(SHELL=/bin/bash /usr/local/bin/lesspipe.sh)"
 elif [ -x /usr/bin/lesspipe ]; then
-    eval "$(SHELL=/bin/bash /usr/bin/lesspipe)"    
+    eval "$(SHELL=/bin/bash /usr/bin/lesspipe)"
 fi
 
 if [ -n "$LESSOPEN" ] && type pygmentize >/dev/null 2>&1; then
     export LESS='-R'
     export LESSCOLORIZER=pygmentize
-fi  
+fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -260,3 +260,37 @@ then
 	run-parts /etc/update-motd.d 2>/dev/null
     fi
 fi
+
+
+function dateseq() {
+    # Usage:
+    #
+    #    $ dateseq START_DATE END_DATE STEP_DAYS
+    #
+    #  START_DATE,END_DATE: as YYYY-MM-DD format.
+    #
+
+    if /bin/date --version >/dev/null 2>&1; then
+	CMD=/bin/date  # Linux version
+    else
+	CMD=/usr/local/bin/gdate  # Mac OS vsersion (use GNU date)
+    fi
+
+    START_DATE=$1
+    END_DATE=$2
+    STEP_DAYS=$3
+    if [ -z "$STEP_DAYS" ]; then
+	STEP_DAYS=1
+    fi
+
+    #TS=$($CMD -d "$START_DATE" +'%s')
+    TS_END=$($CMD -d "$END_DATE" +'%s')
+    
+    CURRENT="${START_DATE}"
+
+    while [ $($CMD -d "${CURRENT}" +'%s') -le $TS_END ]
+    do
+	echo "${CURRENT}"
+	CURRENT=$($CMD -d "${CURRENT} +${STEP_DAYS}days" +'%Y-%m-%d')
+    done
+}
