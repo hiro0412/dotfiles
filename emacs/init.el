@@ -77,10 +77,15 @@
 	 (org-edit-src-content-indentation . 0))
   :config
   (setq org-agenda-files (list my-todo-file))
+
+  ;; -- extra packages --
   (leaf org-preview-html
     :ensure t)
   (leaf ox-gfm
     :ensure t)
+  (leaf orgtbl-aggregate
+    :ensure t
+    )
 
   :bind (("C-c l" . org-store-link)
 	 ("C-c a" . org-agenda)
