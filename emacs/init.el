@@ -10,9 +10,9 @@
 ;; <leaf-install-code>
 (eval-and-compile
   (customize-set-variable
-   'package-archives '(("org" . "https://orgmode.org/elpa/")
-                       ("melpa" . "https://melpa.org/packages/")
-                       ("gnu" . "https://elpa.gnu.org/packages/")))
+   'package-archives '(("melpa" . "https://melpa.org/packages/")
+                       ("gnu" . "https://elpa.gnu.org/packages/")
+		       ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
     (package-refresh-contents)
@@ -85,6 +85,25 @@
     :ensure t)
   (leaf orgtbl-aggregate
     :ensure t
+    )
+  (leaf org-superstar
+    :ensure t
+    :hook (org-mode-hook . org-superstar-mode))
+
+  (leaf org-contrib
+    :ensure t
+    :config
+
+    (leaf org-eldoc
+      :config
+      (defadvice org-eldoc-documentation-function (around add-field-info activate)
+	(or
+	 (ignore-errors (and (not (org-at-table-hline-p)) (org-table-field-info nil)))
+	 ad-do-it))
+      (eldoc-add-command-completions
+       "org-table-next-" "org-table-previous" "org-cycle")
+      :hook ((org-mode-hook . turn-on-eldoc-mode))
+      )
     )
 
   :bind (("C-c l" . org-store-link)
