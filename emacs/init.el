@@ -279,7 +279,15 @@
     :ensure t
     ;; :hook ((elpy-mode-hook . poetry-tracking-mode))
     )
-  
+
+  ;; --- display-fill-column-indicator-mode ---
+  (leaf *display-fill-column-indicator-mode
+    :hook ((python-mode-hook
+	    . (lambda ()
+		(display-fill-column-indicator-mode t)
+		(customize-set-variable
+		 'display-fill-column-indicator-column 80))))
+    )
 )
 
 ;; --- yaml --
