@@ -80,7 +80,8 @@
 
   ;; -- extra packages --
   (leaf org-preview-html
-    :ensure t)
+    :ensure t
+    :custom (org-preview-html-viewer . 'xwidget))
   (leaf ox-gfm
     :ensure t)
   (leaf orgtbl-aggregate
