@@ -762,6 +762,10 @@
 ;; fido-vertical-mode (補完)
 (fido-vertical-mode t)
 
+(defun my-icomplete-styles ()
+  (setq-local completion-styles '(initials flex)))
+(add-hook 'icomplete-minibuffer-setup-hook 'my-icomplete-styles)
+
 
 (leaf leaf-convert
   :config
