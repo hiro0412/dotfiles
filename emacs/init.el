@@ -688,7 +688,6 @@
 
   ;; --- modus-themes ---
   (leaf modus-themes
-    :disabled t
     :doc "Highly accessible themes (WCAG AAA)"
     :req "emacs-27.1"
     :tag "accessibility" "theme" "faces" "emacs>=27.1"
@@ -703,21 +702,22 @@
      ;(modus-themes-mode-line . '(moody accented (padding . 1) (hight . 0.9)))
      (modus-themes-hl-line . '(accented))
      ;(modus-themes-paren-match . '(bold underline intense))
+     (modus-themes-org-blocks . 'gray-background)
      )
     :bind (("<f5>" . modus-themes-toggle))
     ;:config (modus-themes-load-vivendi)
     )
   
-  ;(load-theme 'modus-vivendi t)
+  (load-theme 'modus-vivendi t)
 
   ;; --- zenburn ---
-  (leaf zenburn-theme
-    :ensure t
-    :custom ((zenburn-use-variable-pitch . t)
-	     (zenburn-scale-org-headlines . t)
-	     (zenburn-scale-outline-headlines . t))
-    :init (load-theme 'zenburn t))
-  )
+  ;; (leaf zenburn-theme
+  ;;   :ensure t
+  ;;   :custom ((zenburn-use-variable-pitch . t)
+  ;; 	     (zenburn-scale-org-headlines . t)
+  ;; 	     (zenburn-scale-outline-headlines . t))
+  ;;   :init (load-theme 'zenburn t))
+)
 
 ;; --- recentf ---
 
