@@ -726,7 +726,7 @@
   (leaf recentf
     ;; Settings for recentf itself
     :setq ((recentf-max-saved-items . 2000)
-	   (recentf-auto-cleanup quote never)
+           ;(recentf-auto-cleanup quote never)
 	   (recentf-exclude quote
 			    ("/recentf"
 			     "COMMIT_EDITMSG"
