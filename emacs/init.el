@@ -331,6 +331,12 @@
   :hook (js-mode-hook . hs-minor-mode)
   )
 
+
+;; --- markdown-mode --
+(leaf markdown-mode
+  :ensure t
+  )
+
 ;; --- grip-mode ---
 
 (leaf grip-mode
