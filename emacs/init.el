@@ -338,6 +338,10 @@
 )
 
 
+(leaf web-beautify
+  :ensure t
+  )
+
 ;; Window Management
 ;; =================
 
