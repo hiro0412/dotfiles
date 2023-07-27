@@ -811,4 +811,11 @@
   :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
 
 
+;; Enable down/upcase-region
+(leaf leaf-convert
+  :config
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil))
+
+
 (provide 'init)
