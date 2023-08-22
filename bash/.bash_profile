@@ -98,4 +98,7 @@ then
     # the`/etc/resolv.conf` file, and write into the DISPLAY environment
     # variable
     export DISPLAY=$(grep nameserver /etc/resolv.conf | cut -f2 -d' '):0
+
+    # Open explorer
+    function explorer() { P=$1; explorer.exe $(wslpath -w $P); }
 fi
