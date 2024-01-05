@@ -60,7 +60,7 @@
   :doc "Outline-based notes management and organizer"
   :tag "builtin"
   :added "2021-12-19"
-  :setq ((my-todo-file . "~/Dropbox/docs/SilverEgg/2023/todo.org")
+  :setq ((my-todo-file . "~/Dropbox/docs/SilverEgg/2024/todo.org")
 	 (org-startup-with-inline-images . t)
 	 (org-use-speed-commands . t)
 	 (org-capture-templates quote
@@ -68,7 +68,7 @@
 				  (file+datetree "~/org/journal.org")
 				  "* %?n %Un %in %a")
 				 ("m" "仕事メモ" entry
-				  (file+headline "~/org/memo.org" "仕事メモ")
+				  (file+headline "~/org/2024/workmemo.org" "仕事メモ")
 				  "* %?n %Un %i")
 				 ("p" "プライベートメモ" entry
 				  (file+headline "~/org/private_memo.org" "プライベートメモ")
