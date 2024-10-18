@@ -102,3 +102,10 @@ then
     # Open explorer
     function explorer() { P=$1; explorer.exe $(wslpath -w $P); }
 fi
+export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+
+# PostgreSQL commands
+if [ -d "/usr/local/opt/postgresql@16/bin" ];
+then
+    export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+fi
