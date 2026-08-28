@@ -528,7 +528,9 @@
 
 (leaf leaf-convert
   :bind (("C-m" . newline-and-indent)
-	 ("M-k" . kill-this-buffer)
+	 ;; kill-this-buffer は key bindingsから呼び出すべきでない
+	 ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=78809
+	 ("M-k" . kill-current-buffer)
 	 ("C-t" . other-window)
 	 (esc-map
 	  ("<left>" . windmove-left))
