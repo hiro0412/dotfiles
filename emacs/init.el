@@ -276,7 +276,7 @@
     (remove-hook 'elpy-modules 'elpy-module-highlight-indentation) ;; インデントハイライトの無効化
     (remove-hook 'elpy-modules 'elpy-module-flymake) ;; flymakeの無効化
     :custom
-    (elpy-rpc-python-command . "python3")
+    (elpy-rpc-python-command . "/usr/local/bin/python3.13")
     ;; https://mako-note.com/ja/elpy-rpc-python-version/の問題を回避するための設定
     (flycheck-python-flake8-executable . "flake8")
     :bind (elpy-mode-map
