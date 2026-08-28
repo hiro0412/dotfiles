@@ -51,6 +51,12 @@
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
     # https://qiita.com/scalper/items/1905b47209989dda5648
     dist = "!mkdir ./dist; git archive --format=tar HEAD | tar -C ./dist -xf -"
+    # https://piechowski.io/post/git-commands-before-reading-code/
+    wcm = !git log --format=format: --name-only --since='1 year ago' | sort | uniq -c | sort -nr | head -20  # What Changes the Most
+    wbt = shortlog -sn --no-merges  # Who Built This
+    wdbc = !git log -i -E --grep='fix|bug|broken' --name-only --format='' | sort | uniq -c | sort -nr | head -20  # Where Do Bugs Cluster
+    isaod = !git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c  # Is This Project Accelerating or Dying
+    hoitf = !git log --oneline --since='1 year ago' | grep -iE 'revert|hotfix|emergency|rollback' # How Often Is the Team Firefighting
 [push]
     default = current
 [fetch]
