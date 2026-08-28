@@ -68,7 +68,7 @@
 				  (file+datetree "~/org/journal.org")
 				  "* %?n %Un %in %a")
 				 ("m" "仕事メモ" entry
-				  (file+headline "~/org/2024/workmemo.org" "仕事メモ")
+				  (file+headline "~/org/2026/workmemo_202603.org" "仕事メモ")
 				  "* %?n %Un %i")
 				 ("p" "プライベートメモ" entry
 				  (file+headline "~/org/private_memo.org" "プライベートメモ")
