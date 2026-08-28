@@ -51,7 +51,12 @@
 (leaf hydra-posframe
   :el-get Ladicle/hydra-posframe
   :require t
-  :config (hydra-posframe-enable)
+  :config
+  ;; パッケージが新API (hydra-posframe-mode) を推奨するようになったため、
+  ;; 存在すればそちらを、無ければ従来のhydra-posframe-enableを使う
+  (if (fboundp 'hydra-posframe-mode)
+      (hydra-posframe-mode 1)
+    (hydra-posframe-enable))
   )
 
 
@@ -97,10 +102,14 @@
 
     (leaf org-eldoc
       :config
-      (defadvice org-eldoc-documentation-function (around add-field-info activate)
-	(or
-	 (ignore-errors (and (not (org-at-table-hline-p)) (org-table-field-info nil)))
-	 ad-do-it))
+      ;; defadviceは非推奨のため advice-add に変更。
+      ;; 将来のOrgで対象関数名が変わっても起動時エラーにならないよう fboundp で保護。
+      (when (fboundp 'org-eldoc-documentation-function)
+        (advice-add 'org-eldoc-documentation-function :around
+                     (lambda (orig-fun &rest args)
+                       (or
+                        (ignore-errors (and (not (org-at-table-hline-p)) (org-table-field-info nil)))
+                        (apply orig-fun args)))))
       (eldoc-add-command-completions
        "org-table-next-" "org-table-previous" "org-cycle")
       :hook ((org-mode-hook . turn-on-eldoc-mode))
@@ -307,9 +316,10 @@
     :ensure t
     :bind ("C-c d" . docker))
 
-  (leaf docker-tramp
-    :ensure t
-    )
+  ;; docker-tramp は obsolete。Emacs 29+ に組み込まれた tramp-container を使う
+  ;; (/docker:CONTAINER:/path/to/file の形式はそのまま使える)
+  (with-eval-after-load 'tramp
+    (require 'tramp-container nil t))
 
   (leaf dockerfile-mode
     :ensure t
@@ -659,19 +669,22 @@
   ;; --- font-setting ---
   (leaf font
     :config
-    (create-fontset-from-ascii-font
-     "Ricty Diminished-16:weight=normal:slant=normal"
-     nil
-     "Ricty_Diminished")
-    (set-fontset-font
-     "fontset-Ricty_Diminished"
-     'unicode
-     "Ricty Diminished-16:weight=normal:slant=normal"
-     nil
-     'append)
-    (add-to-list
-     'default-frame-alist
-     '(font . "fontset-Ricty_Diminished")))
+    ;; Emacs31はターミナルでの利用がしやすくなったため、
+    ;; GUI(ウィンドウシステム)があるときだけフォント設定を行うようにガード
+    (when (display-graphic-p)
+      (create-fontset-from-ascii-font
+       "Ricty Diminished-16:weight=normal:slant=normal"
+       nil
+       "Ricty_Diminished")
+      (set-fontset-font
+       "fontset-Ricty_Diminished"
+       'unicode
+       "Ricty Diminished-16:weight=normal:slant=normal"
+       nil
+       'append)
+      (add-to-list
+       'default-frame-alist
+       '(font . "fontset-Ricty_Diminished"))))
 
   ;; --- all-the-icons ---
   (leaf all-the-icons
@@ -696,7 +709,18 @@
   (line-number-mode t)
   (column-number-mode t)
 
+  ;; NOTE: Emacs31でfaceの:inherit循環参照を検出する仕組みが本体に追加されたため、
+  ;; custom.elの古いface設定やmoodyとの組み合わせで
+  ;; "Face inheritance results in inheritance cycle: button" が出ることがある。
+  ;; load-theme自体が失敗してもappearanceブロック全体が止まらないようガードしておく。
+
   ;; --- modus-themes ---
+  ;; Emacs31はmodus-themesを本体に内蔵しているため、ELPA版を明示インストールしない。
+  ;; (ELPA版とEmacs31 core側のface定義がズレて
+  ;;  "Face inheritance results in inheritance cycle: button" が発生するため)
+  ;; -> ELPA版の最新(5.x系)は「作り直された新エンジン」であり、
+  ;;    このinit.elの設定(2021年当時のスタイル)とは非互換なので、
+  ;;    :ensure は使わず常にEmacs内蔵版(28→1.6.0 / 31→内蔵の新版)を使う
   (leaf modus-themes
     :doc "Highly accessible themes (WCAG AAA)"
     :req "emacs-27.1"
@@ -704,7 +728,6 @@
     :url "https://gitlab.com/protesilaos/modus-themes"
     :added "2021-12-19"
     :emacs>= 27.1
-    :ensure t
     :custom
     ((modus-themes-italic-constructs . t)
      (modus-themes-bold-constructs . nil)
