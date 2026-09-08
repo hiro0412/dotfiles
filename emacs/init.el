@@ -6,6 +6,8 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
+;; == Variable declaration ==
+(defvar my-todo-file)
 
 ;; <leaf-install-code>
 (eval-and-compile
@@ -258,7 +260,9 @@
 (leaf flycheck
   :ensure t
   :hook (prog-mode-hook . flycheck-mode)
-  :custom ((flycheck-display-errors-delay . 0.3))
+  :custom ((flycheck-display-errors-delay . 0.3)
+	   ;; init.el特有の誤検知を抑制
+	   (flycheck-emacs-lisp-load-path . 'inherit))
   :config
   (leaf flycheck-color-mode-line
     :ensure t
@@ -377,10 +381,11 @@
 
 (leaf leaf-convert
   :preface
+  (defvar windmove-wrap-around)
   (defun hydra-move-splitter-left (arg)
     "Move window splitter left."
     (interactive "p")
-    (if (let ((windmove-wrap-around ))
+    (if (let ((windmove-wrap-around nil))
 	  (windmove-find-other-window 'right))
 	(shrink-window-horizontally arg)
       (enlarge-window-horizontally arg)))
@@ -388,7 +393,7 @@
   (defun hydra-move-splitter-right (arg)
     "Move window splitter right."
     (interactive "p")
-    (if (let ((windmove-wrap-around ))
+    (if (let ((windmove-wrap-around nil))
 	  (windmove-find-other-window 'right))
 	(enlarge-window-horizontally arg)
       (shrink-window-horizontally arg)))
@@ -396,7 +401,7 @@
   (defun hydra-move-splitter-up (arg)
     "Move window splitter up."
     (interactive "p")
-    (if (let ((windmove-wrap-around ))
+    (if (let ((windmove-wrap-around nil))
 	  (windmove-find-other-window 'up))
 	(enlarge-window arg)
       (shrink-window arg)))
@@ -404,7 +409,7 @@
   (defun hydra-move-splitter-down (arg)
     "Move window splitter down."
     (interactive "p")
-    (if (let ((windmove-wrap-around ))
+    (if (let ((windmove-wrap-around nil))
 	  (windmove-find-other-window 'up))
 	(shrink-window arg)
       (enlarge-window arg)))
@@ -838,3 +843,7 @@
 
 
 (provide 'init)
+
+;; Local Variables:
+;; flycheck-disabled-checkers: (emacs-lisp-checkdoc)
+;; End:
