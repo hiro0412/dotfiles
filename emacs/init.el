@@ -689,6 +689,8 @@
        '(font . "fontset-Ricty_Diminished"))))
 
   ;; --- all-the-icons ---
+  ;; 使用開始時に以下でフォントをインストールする必要があります
+  ;;   M-x all-the-icons-install-fonts
   (leaf all-the-icons
     :ensure t
     :init
