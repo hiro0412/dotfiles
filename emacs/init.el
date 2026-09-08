@@ -746,14 +746,6 @@
     )
   
   (load-theme 'modus-vivendi t)
-
-  ;; --- zenburn ---
-  ;; (leaf zenburn-theme
-  ;;   :ensure t
-  ;;   :custom ((zenburn-use-variable-pitch . t)
-  ;; 	     (zenburn-scale-org-headlines . t)
-  ;; 	     (zenburn-scale-outline-headlines . t))
-  ;;   :init (load-theme 'zenburn t))
 )
 
 ;; --- recentf ---
