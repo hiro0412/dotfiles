@@ -12,7 +12,7 @@
   (customize-set-variable
    'package-archives '(("melpa" . "https://melpa.org/packages/")
                        ("gnu" . "https://elpa.gnu.org/packages/")
-		       ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+                       ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
     (package-refresh-contents)
@@ -67,23 +67,23 @@
   :tag "builtin"
   :added "2021-12-19"
   :defvar (my-todo-file org-startup-with-inline-images org-use-speed-commands
-	   org-capture-templates org-hide-leading-stars
-	   org-edit-src-content-indentation org-agenda-files)
+           org-capture-templates org-hide-leading-stars
+           org-edit-src-content-indentation org-agenda-files)
   :setq ((my-todo-file . "~/Dropbox/docs/SilverEgg/2024/todo.org")
-	 (org-startup-with-inline-images . t)
-	 (org-use-speed-commands . t)
-	 (org-capture-templates quote
-				(("j" "Journal" entry
-				  (file+datetree "~/org/journal.org")
-				  "* %?n %Un %in %a")
-				 ("m" "仕事メモ" entry
-				  (file+headline "~/org/2026/workmemo_202603.org" "仕事メモ")
-				  "* %?n %Un %i")
-				 ("p" "プライベートメモ" entry
-				  (file+headline "~/org/private_memo.org" "プライベートメモ")
-				  "* %?n %Un %i")))
-	 (org-hide-leading-stars . t)
-	 (org-edit-src-content-indentation . 0))
+         (org-startup-with-inline-images . t)
+         (org-use-speed-commands . t)
+         (org-capture-templates quote
+                                (("j" "Journal" entry
+                                  (file+datetree "~/org/journal.org")
+                                  "* %?n %Un %in %a")
+                                 ("m" "仕事メモ" entry
+                                  (file+headline "~/org/2026/workmemo_202603.org" "仕事メモ")
+                                  "* %?n %Un %i")
+                                 ("p" "プライベートメモ" entry
+                                  (file+headline "~/org/private_memo.org" "プライベートメモ")
+                                  "* %?n %Un %i")))
+         (org-hide-leading-stars . t)
+         (org-edit-src-content-indentation . 0))
   :config
   (setq org-agenda-files (list my-todo-file))
 
@@ -122,10 +122,10 @@
     )
 
   :bind (("C-c l" . org-store-link)
-	 ("C-c a" . org-agenda)
-	 ("C-c c" . org-capture))
+         ("C-c a" . org-agenda)
+         ("C-c c" . org-capture))
   :custom ((org-fontify-quote-and-verse-blocks . t)
-	   (org-fontify-whole-block-delimiter-line . t))
+           (org-fontify-whole-block-delimiter-line . t))
   )
 
 
@@ -159,25 +159,25 @@
     :ensure t
     :init (global-git-gutter-mode +1)
     :bind (("C-x C-g" . 'git-gutter)
-	   ("C-x v =" . 'git-gutter:popup-hunk)
+           ("C-x v =" . 'git-gutter:popup-hunk)
 
-	    ;; Junp to next/previous hunk
-	   ("C-x p" . 'git-gutter:popup-hunk)
-	   ("C-x n" . 'git-gutter:popup-hunk)
+            ;; Junp to next/previous hunk
+           ("C-x p" . 'git-gutter:popup-hunk)
+           ("C-x n" . 'git-gutter:popup-hunk)
 
-	    ;; Jump to next/previous hunk
-	   ("C-x p" . 'git-gutter:previous-hunk)
-	   ("C-x n" . 'git-gutter:next-hunk)
+            ;; Jump to next/previous hunk
+           ("C-x p" . 'git-gutter:previous-hunk)
+           ("C-x n" . 'git-gutter:next-hunk)
 
-	    ;; Stage current hunk
-	   ("C-x v s" . 'git-gutter:stage-hunk)
+            ;; Stage current hunk
+           ("C-x v s" . 'git-gutter:stage-hunk)
 
-	    ;; Revert current hunk
-	   ("C-x v r" . 'git-gutter:revert-hunk)
+            ;; Revert current hunk
+           ("C-x v r" . 'git-gutter:revert-hunk)
 
-	    ;; Mark current hunk
-	   ("C-x v SPC" . #'git-gutter:mark-hunk)
-	   )
+            ;; Mark current hunk
+           ("C-x v SPC" . #'git-gutter:mark-hunk)
+           )
     )
 )
 
@@ -217,9 +217,9 @@
            skk-large-jisyo)
   :require skk-setup
   :setq ((skk-user-directory . "~/.emacs.d/ddskk")
-	 (skk-use-kana-keyboard . t)
-	 (skk-kanagaki-keyboard-type quote omelet-jis)
-	 (skk-large-jisyo . "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L"))
+         (skk-use-kana-keyboard . t)
+         (skk-kanagaki-keyboard-type quote omelet-jis)
+         (skk-large-jisyo . "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L"))
   :config
    (leaf ddskk-posframe
     :ensure t
@@ -266,8 +266,8 @@
   :ensure t
   :hook (prog-mode-hook . flycheck-mode)
   :custom ((flycheck-display-errors-delay . 0.3)
-	   ;; init.el特有の誤検知を抑制
-	   (flycheck-emacs-lisp-load-path . 'inherit))
+           ;; init.el特有の誤検知を抑制
+           (flycheck-emacs-lisp-load-path . 'inherit))
   :config
   (leaf flycheck-color-mode-line
     :ensure t
@@ -289,7 +289,7 @@
     ;; https://mako-note.com/ja/elpy-rpc-python-version/の問題を回避するための設定
     (flycheck-python-flake8-executable . "flake8")
     :bind (elpy-mode-map
-	   ("C-c C-r f" . elpy-format-code))
+           ("C-c C-r f" . elpy-format-code))
     :hook ((elpy-mode-hook . flycheck-mode))
     )
 
@@ -302,10 +302,10 @@
   ;; --- display-fill-column-indicator-mode ---
   (leaf *display-fill-column-indicator-mode
     :hook ((python-mode-hook
-	    . (lambda ()
-		(display-fill-column-indicator-mode t)
-		(customize-set-variable
-		 'display-fill-column-indicator-column 80))))
+            . (lambda ()
+                (display-fill-column-indicator-mode t)
+                (customize-set-variable
+                 'display-fill-column-indicator-column 80))))
     )
 )
 
@@ -389,53 +389,53 @@
 (leaf leaf-convert
   :defvar (windmove-wrap-around)
   :defun (hydra-move-splitter-left hydra-move-splitter-right
-	  hydra-move-splitter-up hydra-move-splitter-down
-	  ace-maximize-window winner-undo winner-redo
-	  windmove-find-other-window)
+          hydra-move-splitter-up hydra-move-splitter-down
+          ace-maximize-window winner-undo winner-redo
+          windmove-find-other-window)
   :preface
   (defun hydra-move-splitter-left (arg)
     "Move window splitter left."
     (interactive "p")
     (if (let ((windmove-wrap-around nil))
-	  (windmove-find-other-window 'right))
-	(shrink-window-horizontally arg)
+          (windmove-find-other-window 'right))
+        (shrink-window-horizontally arg)
       (enlarge-window-horizontally arg)))
 
   (defun hydra-move-splitter-right (arg)
     "Move window splitter right."
     (interactive "p")
     (if (let ((windmove-wrap-around nil))
-	  (windmove-find-other-window 'right))
-	(enlarge-window-horizontally arg)
+          (windmove-find-other-window 'right))
+        (enlarge-window-horizontally arg)
       (shrink-window-horizontally arg)))
 
   (defun hydra-move-splitter-up (arg)
     "Move window splitter up."
     (interactive "p")
     (if (let ((windmove-wrap-around nil))
-	  (windmove-find-other-window 'up))
-	(enlarge-window arg)
+          (windmove-find-other-window 'up))
+        (enlarge-window arg)
       (shrink-window arg)))
 
   (defun hydra-move-splitter-down (arg)
     "Move window splitter down."
     (interactive "p")
     (if (let ((windmove-wrap-around nil))
-	  (windmove-find-other-window 'up))
-	(shrink-window arg)
+          (windmove-find-other-window 'up))
+        (shrink-window arg)
       (enlarge-window arg)))
 
   :config
   (defhydra hydra-window nil
     (concat
-     "\nMovement^^        ^Split^         ^Switch^		^Resize^"
+     "\nMovement^^        ^Split^         ^Switch^              ^Resize^"
      "\n----------------------------------------------------------------"
-     "\n_h_ ←       	_v_ertical    	_b_uffer		_q_ X←"
-     "\n_j_ ↓        	_x_ horizontal	_f_ind files	_w_ X↓"
-     "\n_k_ ↑        	_z_ undo      	_a_ce 1		_e_ X↑"
-     "\n_l_ →        	_Z_ reset      	_s_wap		_r_ X→"
-     "\n_F_ollow		_D_lt Other   	_S_ave		max_i_mize"
-     "\n_SPC_ cancel	_o_nly this   	_D_elete	\n")
+     "\n_h_ ←          _v_ertical      _b_uffer                _q_ X←"
+     "\n_j_ ↓          _x_ horizontal  _f_ind files    _w_ X↓"
+     "\n_k_ ↑          _z_ undo        _a_ce 1         _e_ X↑"
+     "\n_l_ →          _Z_ reset       _s_wap          _r_ X→"
+     "\n_F_ollow                _D_lt Other     _S_ave          max_i_mize"
+     "\n_SPC_ cancel    _o_nly this     _D_elete        \n")
     ("h" windmove-left)
     ("j" windmove-down)
     ("k" windmove-up)
@@ -540,32 +540,32 @@
 (leaf leaf-convert
   :when (eq system-type 'darwin) window-system
   :setq ((ns-command-modifier quote meta)
-	 (ns-alternate-modifier quote super)))
+         (ns-alternate-modifier quote super)))
 
 (leaf leaf-convert
   :bind (("C-m" . newline-and-indent)
-	 ;; kill-this-buffer は key bindingsから呼び出すべきでない
-	 ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=78809
-	 ("M-k" . kill-current-buffer)
-	 ("C-t" . other-window)
-	 (esc-map
-	  ("<left>" . windmove-left))
-	 (esc-map
-	  ("<right>" . windmove-right))
-	 (esc-map
-	  ("<up>" . windmove-up))
-	 (esc-map
-	  ("<down>" . windmove-down))
-	 ("M-%" . query-replace-regexp)
-	 ("M-¥" . delete-horizontal-space)
-	 ("M-g" . goto-line)
-	 ("C-^" . hs-toggle-hiding)
-	 ("M-_" . whitespace-mode)
-	 ("<s-down>" . scroll-other-window)
-	 ("<s-up>" . scroll-other-window-down)
-	 ("C-x C-b" . ibuffer)
-	 ("C-x t" . toggle-truncate-lines)
-	 ))
+         ;; kill-this-buffer は key bindingsから呼び出すべきでない
+         ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=78809
+         ("M-k" . kill-current-buffer)
+         ("C-t" . other-window)
+         (esc-map
+          ("<left>" . windmove-left))
+         (esc-map
+          ("<right>" . windmove-right))
+         (esc-map
+          ("<up>" . windmove-up))
+         (esc-map
+          ("<down>" . windmove-down))
+         ("M-%" . query-replace-regexp)
+         ("M-¥" . delete-horizontal-space)
+         ("M-g" . goto-line)
+         ("C-^" . hs-toggle-hiding)
+         ("M-_" . whitespace-mode)
+         ("<s-down>" . scroll-other-window)
+         ("<s-up>" . scroll-other-window-down)
+         ("C-x C-b" . ibuffer)
+         ("C-x t" . toggle-truncate-lines)
+         ))
 
  ;; Karabinar-Elements で "Change ¥ to Alt+¥" を設定している場合に \ に変換されるようにする
 (leaf leaf-convert
@@ -830,13 +830,13 @@
     ;; Settings for recentf itself
     :setq ((recentf-max-saved-items . 2000)
            ;(recentf-auto-cleanup quote never)
-	   (recentf-exclude quote
-			    ("/recentf"
-			     "COMMIT_EDITMSG"
-			     "/.?TAGS"
-			     "^/sudo:"
-			     "/\\.emacs\\.d/games/*-scores"
-			     "/\\.emacs\\.d/\\.cask/")))
+           (recentf-exclude quote
+                            ("/recentf"
+                             "COMMIT_EDITMSG"
+                             "/.?TAGS"
+                             "^/sudo:"
+                             "/\\.emacs\\.d/games/*-scores"
+                             "/\\.emacs\\.d/\\.cask/")))
     :config
     (setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
     (recentf-mode t)
@@ -880,22 +880,22 @@
 (leaf leaf-convert
   :config
   (add-hook 'after-save-hook
-	    #'(lambda nil
-		(if (string=
-		     (expand-file-name "~/.emacs.d/init.el")
-		     (buffer-file-name))
-		    (save-excursion
-		      (byte-compile-file (buffer-file-name)))))))
+            #'(lambda nil
+                (if (string=
+                     (expand-file-name "~/.emacs.d/init.el")
+                     (buffer-file-name))
+                    (save-excursion
+                      (byte-compile-file (buffer-file-name)))))))
 
 
 ;; Emacsの起動時間を表示
 (leaf leaf-convert
   :config
   (add-hook 'after-init-hook
-	    (lambda nil
-	      (message "init time: %.3f sec"
-		       (float-time
-			(time-subtract after-init-time before-init-time))))))
+            (lambda nil
+              (message "init time: %.3f sec"
+                       (float-time
+                        (time-subtract after-init-time before-init-time))))))
 
 
 (leaf cus-edit
