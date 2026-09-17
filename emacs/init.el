@@ -6,8 +6,6 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
-;; == Variable declaration ==
-(defvar my-todo-file)
 
 ;; <leaf-install-code>
 (eval-and-compile
@@ -53,6 +51,7 @@
 (leaf hydra-posframe
   :el-get Ladicle/hydra-posframe
   :require t
+  :defun (hydra-posframe-enable)
   :config
   ;; パッケージが新API (hydra-posframe-mode) を推奨するようになったため、
   ;; 存在すればそちらを、無ければ従来のhydra-posframe-enableを使う
@@ -67,6 +66,9 @@
   :doc "Outline-based notes management and organizer"
   :tag "builtin"
   :added "2021-12-19"
+  :defvar (my-todo-file org-startup-with-inline-images org-use-speed-commands
+	   org-capture-templates org-hide-leading-stars
+	   org-edit-src-content-indentation org-agenda-files)
   :setq ((my-todo-file . "~/Dropbox/docs/SilverEgg/2024/todo.org")
 	 (org-startup-with-inline-images . t)
 	 (org-use-speed-commands . t)
@@ -103,6 +105,7 @@
     :config
 
     (leaf org-eldoc
+      :defun (org-at-table-hline-p org-table-field-info)
       :config
       ;; defadviceは非推奨のため advice-add に変更。
       ;; 将来のOrgで対象関数名が変わっても起動時エラーにならないよう fboundp で保護。
@@ -210,6 +213,8 @@
 ;; --- ddskk ---
 ;; ※omeletを使うためにはソースからインストールしなければならない
 (leaf skk
+  :defvar (skk-user-directory skk-use-kana-keyboard skk-kanagaki-keyboard-type
+           skk-large-jisyo)
   :require skk-setup
   :setq ((skk-user-directory . "~/.emacs.d/ddskk")
 	 (skk-use-kana-keyboard . t)
@@ -370,6 +375,8 @@
 (leaf ace-window
   :ensure t
   :bind (("M-o" . ace-window))
+  :defvar (aw-keys)
+  :defun (aw-select)
   :setq ((aw-keys . '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
   :config
   (defun ace-maximize-window ()
@@ -380,8 +387,12 @@
   )
 
 (leaf leaf-convert
+  :defvar (windmove-wrap-around)
+  :defun (hydra-move-splitter-left hydra-move-splitter-right
+	  hydra-move-splitter-up hydra-move-splitter-down
+	  ace-maximize-window winner-undo winner-redo
+	  windmove-find-other-window)
   :preface
-  (defvar windmove-wrap-around)
   (defun hydra-move-splitter-left (arg)
     "Move window splitter left."
     (interactive "p")
@@ -578,6 +589,63 @@
 ;; --- hydra setting on ibuffer ---
 ;; original setting: https://github.com/abo-abo/hydra/wiki/Ibuffer
 (leaf leaf-convert
+  :defvar (ibuffer-mode-map)
+  :defun (
+    ibuffer-forward-line
+    ibuffer-visit-buffer
+    ibuffer-backward-line
+    ibuffer-mark-forward
+    ibuffer-unmark-forward
+    hydra-ibuffer-mark/body
+    ibuffer-do-delete ibuffer-do-save
+    hydra-ibuffer-action/body
+    ibuffer-update
+    hydra-ibuffer-sort/body
+    hydra-ibuffer-filter/body
+    ibuffer-visit-buffer-other-window
+    hydra-ibuffer-main/body
+    ibuffer-unmark-all
+    ibuffer-mark-by-mode
+    ibuffer-mark-modified-buffers
+    ibuffer-mark-unsaved-buffers
+    ibuffer-mark-special-buffers
+    ibuffer-mark-read-only-buffers
+    ibuffer-mark-dired-buffers
+    ibuffer-mark-dissociated-buffers
+    ibuffer-mark-help-buffers
+    ibuffer-mark-compressed-file-buffers
+    ibuffer-do-view
+    ibuffer-do-eval
+    ibuffer-do-shell-command-file
+    ibuffer-do-query-replace-regexp
+    ibuffer-do-view-other-frame
+    ibuffer-do-shell-command-pipe-replace
+    ibuffer-do-toggle-modified
+    ibuffer-do-occur
+    ibuffer-do-print
+    ibuffer-do-query-replace
+    ibuffer-do-rename-uniquely
+    ibuffer-do-toggle-read-only
+    ibuffer-do-replace-regexp
+    ibuffer-do-revert
+    ibuffer-do-view-and-eval
+    ibuffer-do-shell-command-pipe
+    ibuffer-invert-sorting
+    ibuffer-do-sort-by-alphabetic
+    ibuffer-do-sort-by-recency
+    ibuffer-do-sort-by-size
+    ibuffer-do-sort-by-filename/process
+    ibuffer-do-sort-by-major-mode
+    ibuffer-filter-by-used-mode
+    ibuffer-filter-by-derived-mode
+    ibuffer-filter-by-name
+    ibuffer-filter-by-content
+    ibuffer-filter-by-predicate
+    ibuffer-filter-by-filename
+    ibuffer-filter-by-size-gt
+    ibuffer-filter-by-size-lt
+    ibuffer-filter-disable
+    )
   :config
   (defhydra hydra-ibuffer-main
     (:color pink :hint nil)
@@ -605,7 +673,7 @@
     ("." nil "toggle hydra" :color blue))
   (defhydra hydra-ibuffer-mark
     (:color teal :columns 5 :after-exit
-	    (hydra-ibuffer-main/body))
+            (hydra-ibuffer-main/body))
     "Mark"
     ("*" ibuffer-unmark-all "unmark all")
     ("M" ibuffer-mark-by-mode "mode")
@@ -620,8 +688,8 @@
     ("b" hydra-ibuffer-main/body "back" :color blue))
   (defhydra hydra-ibuffer-action
     (:color teal :columns 4 :after-exit
-	    (if (eq major-mode 'ibuffer-mode)
-		(hydra-ibuffer-main/body)))
+            (if (eq major-mode 'ibuffer-mode)
+                (hydra-ibuffer-main/body)))
     "Action"
     ("A" ibuffer-do-view "view")
     ("E" ibuffer-do-eval "eval")
@@ -672,7 +740,6 @@
 ;; ==========
 (leaf *appearance
   :config
-  
   ;; --- font-setting ---
   (leaf font
     :config
@@ -756,6 +823,8 @@
 ;; --- recentf ---
 
 (leaf recentf
+  :defvar (recentf-max-saved-items recentf-exclude recentf-auto-save-timer
+           recentf-list)
   :config
   (leaf recentf
     ;; Settings for recentf itself
@@ -846,4 +915,5 @@
 
 ;; Local Variables:
 ;; flycheck-disabled-checkers: (emacs-lisp-checkdoc)
+;; byte-compile-docstring-max-column: 300
 ;; End:
