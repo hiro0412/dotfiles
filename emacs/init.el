@@ -367,6 +367,51 @@
   :ensure t
   )
 
+;; --- CSV ---
+
+(leaf csv
+  :config
+
+  (defvar my/csv-rainbow-faces
+    [font-lock-keyword-face
+     font-lock-string-face
+     font-lock-type-face
+     font-lock-function-name-face
+     font-lock-variable-name-face
+     font-lock-constant-face
+     font-lock-builtin-face
+     font-lock-preprocessor-face]
+    "CSV の列に順番に割り当てるフェイス。")
+
+  (defun my/csv-rainbow-match (limit)
+    "次の空でないフィールドを探す。"
+    (re-search-forward "[^,\n]+" limit t))
+
+  (defun my/csv-rainbow-face ()
+    "現在のマッチが行の何列目かを数えて、対応するフェイスを返す。"
+    (let ((col (how-many "," (line-beginning-position) (match-beginning 0))))
+      (aref my/csv-rainbow-faces (mod col (length my/csv-rainbow-faces)))))
+
+  (defun my/csv-rainbow ()
+    "csv-mode のバッファで列ごとに色を付ける(クォート内のカンマは未対応)。"
+    (font-lock-add-keywords
+     nil
+     '((my/csv-rainbow-match (0 (my/csv-rainbow-face) prepend)))
+     'append)
+    (font-lock-flush))
+
+  (use-package csv-mode
+    :ensure t
+    :mode "\\.[Cc][Ss][Vv]\\'"
+    :hook ((csv-mode . csv-align-mode)
+	   (csv-mode . csv-header-line)
+	   (csv-mode . my/csv-rainbow)
+	   (csv-mode . (lambda () (setq truncate-lines t)))
+	   )
+    )
+
+)
+
 ;; Window Management
 ;; =================
 
