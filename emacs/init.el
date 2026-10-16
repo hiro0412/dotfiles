@@ -264,15 +264,21 @@
 ;; --- flycheck ---
 (leaf flycheck
   :ensure t
-  :hook (prog-mode-hook . flycheck-mode)
+  :hook (prog-mode-hook . my/flycheck-enable-maybe)
   :custom ((flycheck-display-errors-delay . 0.3)
            ;; init.el特有の誤検知を抑制
            (flycheck-emacs-lisp-load-path . 'inherit))
   :config
+  (defun my/flycheck-enable-maybe ()
+    "ファイルに紐付いたバッファでのみ flycheck-mode を有効にする。"
+    (when buffer-file-name
+      (flycheck-mode 1)))
+
   (leaf flycheck-color-mode-line
     :ensure t
     :hook (flycheck-mode-hook . flycheck-color-mode-line-mode)))
 
+;; --- python ---
 (leaf python
   :config
   
