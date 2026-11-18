@@ -157,7 +157,8 @@
     :added "2022-08-06"
     :emacs>= 25.1
     :ensure t
-    :init (global-git-gutter-mode +1)
+    :init (defvar global-linum-mode nil) ; 新しいEmacsでは廃止された変数の参照対策
+          (global-git-gutter-mode +1)
     :bind (("C-x C-g" . 'git-gutter)
            ("C-x v =" . 'git-gutter:popup-hunk)
 
